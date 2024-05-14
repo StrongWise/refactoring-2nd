@@ -62,7 +62,7 @@ export function statement(invoice, plays) {
   }
 
   for (let perf of invoice.performances) {
-    result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience}석)\n`;
+    result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience}석) \n`;
   }
   // return
   result += `총액: ${usd(totalAmount())}\n`;
