@@ -1,4 +1,4 @@
-import { createStatementData } from './createStatementData.js';
+import createStatementData from './createStatementData.js';
 
 export function statement(invoice, plays) {
   return renderPlainText(createStatementData(invoice, plays));
