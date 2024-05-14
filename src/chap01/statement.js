@@ -37,19 +37,20 @@ export function statement(invoice, plays) {
   }
 
   function volumeCreditsFor(perf) {
-    let volumeCredits = 0;
-    volumeCredits += Math.max(perf.audience - 30, 0);
+    let result = 0;
+    result += Math.max(perf.audience - 30, 0);
     if ('comedy' === playFor(perf).type) {
-      volumeCredits += Math.floor(perf.audience / 5);
+      result += Math.floor(perf.audience / 5);
     }
-    return volumeCredits;
+    return result;
   }
 
-  let totalAmount = 0;
-  for (let perf of invoice.performances) {
-    // 청구 내역을 출력한다.
-    result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience}석)\n`;
-    totalAmount += amountFor(perf);
+  function totalAmount() {
+    let result = 0;
+    for (let perf of invoice.performances) {
+      result += amountFor(perf);
+    }
+    return result;
   }
 
   function totalVolumeCredits() {
@@ -60,8 +61,11 @@ export function statement(invoice, plays) {
     return volumeCredits;
   }
 
+  for (let perf of invoice.performances) {
+    result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience}석)\n`;
+  }
   // return
-  result += `총액: ${usd(totalAmount)}\n`;
+  result += `총액: ${usd(totalAmount())}\n`;
   result += `적립 포인트: ${totalVolumeCredits()}점\n`;
   return result;
 }
