@@ -1,10 +1,29 @@
 {
   "name": "refactoring-2nd",
   "version": "1.0.0",
-  "description": "",
+  "description": "martin fowler refactoring 2nd sample code & practice",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "private": true
+  "private": true,
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StrongWise/refactoring-2nd.git"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "chai": "^4.2.0",
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-mocha": "^8.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "mocha": "^10.1.0",
+    "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "js-money": "^0.6.3",
+    "lodash": "^4.17.21"
+  }
 }
