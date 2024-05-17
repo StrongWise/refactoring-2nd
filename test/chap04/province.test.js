@@ -1,4 +1,4 @@
-import {AssertionError, expect} from 'chai';
+import {expect} from 'chai';
 import {Province, sampleProvinceData} from '../../src/chap04/province.js';
 import {beforeEach, describe, it} from "mocha";
 import assert from "node:assert";
