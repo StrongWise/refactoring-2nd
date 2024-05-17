@@ -1,15 +1,16 @@
 export function printOwing(invoice) {
-	let outstanding = 0;
-
   printBanner(); // 배너 출력 로직을 함수로 추출
-
-  // 미해결 채무(outstanding)를 계산
-	for (const o of invoice.orders) {
-		outstanding += o.amount;
-	}
-
+  let outstanding = calculateOutstanding(invoice); // 미해결 채무(outstanding)를 계산하는 로직을 함수로 추출
   recordDueDate(invoice); // 마감일 설정 로직을 함수로 추출
   printDetails(invoice, outstanding); // 세부 사항 출력 로직을 함수로 추출
+}
+
+function calculateOutstanding(invoice) {
+  let outstanding = 0;
+  for (const o of invoice.orders) {
+    outstanding += o.amount;
+  }
+  return outstanding;
 }
 
 function recordDueDate(invoice) {
