@@ -1,6 +1,7 @@
-import { expect } from 'chai';
+import {AssertionError, expect} from 'chai';
 import {Province, sampleProvinceData} from '../../src/chap04/province.js';
 import {beforeEach, describe, it} from "mocha";
+import assert from "node:assert";
 
 describe('province', () => {
 	let asia;
@@ -62,14 +63,15 @@ describe('no producers', () => {
 });
 
 describe('string for producers', () => {
-	it('', () => {
+	it('should throw AssertionError', () => {
 		const data = {
 			name: 'String producers',
 			producers: '',
 			demand: 30,
 			price: 20,
 		};
-		const prov = new Province(data);
-		expect(prov.shortfall).equal(0);
+		// const prov = new Province(data);
+		// expect(prov.shortfall).equal(0);
+    assert.throws(() => new Province(data), assert.AssertionError);
 	});
 });

@@ -1,4 +1,5 @@
 import {Producer} from './producer.js';
+import assert from 'node:assert';
 
 export class Province {
 	constructor(doc) {
@@ -7,6 +8,7 @@ export class Province {
 		this._totalProduction = 0;
 		this._demand = doc.demand;
 		this._price = doc.price;
+    assert(typeof doc.producers === "object");
 		doc.producers.forEach(d => this.addProducer(new Producer(this, d)));
 	}
 
