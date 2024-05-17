@@ -1,4 +1,6 @@
-class Province {
+import {Producer} from './producer.js';
+
+export class Province {
 	constructor(doc) {
 		this._name = doc.name;
 		this._producers = [];
@@ -65,7 +67,7 @@ class Province {
 	}
 }
 
-function sampleProvinceData() {
+export function sampleProvinceData() {
 	return {
 		name: 'Asia',
 		producers: [
@@ -77,10 +79,3 @@ function sampleProvinceData() {
 		price: 20,
 	};
 }
-
-// console.log('test 10000000000');
-
-module.exports = {
-	Province,
-	sampleProvinceData,
-};
