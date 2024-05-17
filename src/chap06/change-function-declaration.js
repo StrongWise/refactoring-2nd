@@ -20,8 +20,7 @@ export class Book {
 }
 
 export function inNewEngland(aCustomer) {
-  const stateCode = aCustomer.address.state;
-  return xxNEWinNewEngland(stateCode);
+  return xxNEWinNewEngland(aCustomer.address.state);
 }
 
 function xxNEWinNewEngland(stateCode) {
