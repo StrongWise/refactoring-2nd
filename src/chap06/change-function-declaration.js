@@ -19,10 +19,6 @@ export class Book {
   }
 }
 
-export function inNewEngland(aCustomer) {
-  return xxNEWinNewEngland(aCustomer.address.state);
-}
-
-function xxNEWinNewEngland(stateCode) {
+export function inNewEngland(stateCode) {
   return ['MA', 'CT', 'ME', 'VT', 'NH', 'RI'].includes(stateCode);
 }

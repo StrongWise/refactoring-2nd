@@ -14,12 +14,12 @@ describe('change-function-declaration', () => {
   })
   it('inNewEngland', () => {
     const customer = {address: {state: 'VT'}};
-    expect(inNewEngland(customer)).true;
+    expect(inNewEngland(customer.address.state)).true;
   })
   it('inNewEnglandCustomerFiltering', () => {
     const customers = [{address: {state: 'VT'}}, {address: {state: 'NY'}},
       {address: {state: 'RI'}}, {address: {state: 'CA'}}];
-    const newEnglanders = customers.filter(c => inNewEngland(c));
+    const newEnglanders = customers.filter(c => inNewEngland(c.address.state));
     expect(newEnglanders.length).equal(2);
   })
 })
