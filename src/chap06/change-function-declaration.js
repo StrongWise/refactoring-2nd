@@ -1,4 +1,5 @@
 import assert from "node:assert";
+
 // 바꿀 함수
 export function circumference(radius) {
   return 2 * Math.PI * radius;
@@ -19,10 +20,10 @@ export class Book {
 }
 
 export function inNewEngland(aCustomer) {
-  return xxNEWinNewEngland(aCustomer);
+  const stateCode = aCustomer.address.state;
+  return xxNEWinNewEngland(stateCode);
 }
 
-function xxNEWinNewEngland(aCustomer) {
-  const stateCode = aCustomer.address.state;
+function xxNEWinNewEngland(stateCode) {
   return ['MA', 'CT', 'ME', 'VT', 'NH', 'RI'].includes(stateCode);
 }
