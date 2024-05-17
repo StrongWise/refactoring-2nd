@@ -4,7 +4,7 @@ import {circum, circumference} from "../../src/chap06/change-function-declaratio
 describe('change-function-declaration', () => {
   it('circum', () => {
     const radius = 3;
-    expect(circum(radius)).equal(2 * Math.PI * radius);
+    expect(circumference(radius)).equal(2 * Math.PI * radius);
   })
   it('circumference', () => {
     const radius = 3;
