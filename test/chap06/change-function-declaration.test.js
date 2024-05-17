@@ -8,7 +8,7 @@ describe('change-function-declaration', () => {
   })
   it('Book', () => {
     const book = new Book();
-    book.addReservation({name:'StrongWise', date: '20240517'})
+    book.zz_addReservation({name: 'StrongWise', date: '20240517'}, false);
     expect(book.reservations[0].name).equal('StrongWise');
     expect(book.reservations[0].date).equal('20240517');
   })
