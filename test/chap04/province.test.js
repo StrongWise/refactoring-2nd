@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import {Province, sampleProvinceData} from '../../src/chap04/province.js';
+import {it} from "mocha";
 
 describe('province', () => {
 	let asia;
@@ -12,5 +13,10 @@ describe('province', () => {
 	});
 	it('profit', () => {
 		expect(asia.profit).equal(230);
+	});
+	it('change production', () => {
+		asia.producers[0].production = 20;
+		expect(asia.shortfall).equal(-6);
+		expect(asia.profit).equal(292);
 	});
 });
