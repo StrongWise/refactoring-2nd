@@ -5,7 +5,7 @@
  * @returns {number}
  */
 export function circum(radius) {
-	return 2 * Math.PI * radius;
+  return circumference(radius);
 }
 // 바꿀 함수
 export function circumference(radius) {
