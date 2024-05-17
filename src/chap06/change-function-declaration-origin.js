@@ -20,3 +20,7 @@ export class Book {
     this._reservations.push(customer);
   }
 }
+
+export function inNewEngland(aCustomer) {
+	return ['MA', 'CT', 'ME', 'VT', 'NH', 'RI'].includes(aCustomer.address.state);
+}
