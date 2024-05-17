@@ -4,7 +4,8 @@
   "description": "martin fowler refactoring 2nd sample code & practice",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/**/*.js",
+    "test4": "mocha test/chap04/*.js"
   },
   "private": true,
   "type": "module",
