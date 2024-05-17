@@ -8,6 +8,6 @@ describe('change-function-declaration', () => {
   })
   it('circumference', () => {
     const radius = 3;
-    expect(circum(radius)).equal(2 * Math.PI * radius);
+    expect(circumference(radius)).equal(2 * Math.PI * radius);
   })
 })
