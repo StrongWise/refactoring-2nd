@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import {Province, sampleProvinceData} from '../../src/chap04/province.js';
-import {it} from "mocha";
+import {beforeEach, describe, it} from "mocha";
 
 describe('province', () => {
 	let asia;
@@ -18,5 +18,24 @@ describe('province', () => {
 		asia.producers[0].production = 20;
 		expect(asia.shortfall).equal(-6);
 		expect(asia.profit).equal(292);
+	});
+});
+
+describe('no producers', () => {
+	let noProducers;
+	beforeEach(() => {
+		const data = {
+			name: 'No producers',
+			producers: [],
+			demand: 30,
+			price: 20,
+		};
+		noProducers = new Province(data);
+	});
+	it('shortfall', () => {
+		expect(noProducers.shortfall).equal(30);
+	});
+	it('profit', () => {
+		expect(noProducers.profit).equal(0);
 	});
 });
