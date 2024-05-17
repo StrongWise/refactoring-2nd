@@ -1,5 +1,5 @@
 import {expect} from "chai";
-import {Book, circumference} from "../../src/chap06/change-function-declaration.js";
+import {Book, circumference, inNewEngland} from "../../src/chap06/change-function-declaration.js";
 
 describe('change-function-declaration', () => {
   it('circumference', () => {
@@ -11,5 +11,9 @@ describe('change-function-declaration', () => {
     book.addReservation({name: 'StrongWise', date: '20240517'}, false);
     expect(book.reservations[0].name).equal('StrongWise');
     expect(book.reservations[0].date).equal('20240517');
+  })
+  it('inNewEngland', () => {
+    const customer = {address: {state: 'VT'}};
+    expect(inNewEngland(customer)).true;
   })
 })
