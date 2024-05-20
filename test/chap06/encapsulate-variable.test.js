@@ -1,5 +1,6 @@
 import {expect} from "chai";
 import {defaultOwner, setDefaultOwner} from "../../src/chap06/encapsulate-variable.js";
+import assert from "node:assert";
 
 describe('encapsulate-variable', () => {
   let spaceship;
@@ -22,7 +23,6 @@ describe('encapsulate-variable', () => {
     const owner1 = defaultOwner();
     expect(owner1.lastName).equal('파울러');
     const owner2 = defaultOwner();
-    owner2.lastName = '파슨스';
-    expect(owner1.lastName).equal('파울러');
+    assert.throws(() => owner2.lastName = '파슨스', assert.TypeError);
   });
 });
