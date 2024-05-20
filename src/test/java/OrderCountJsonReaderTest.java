@@ -2,14 +2,16 @@ import org.junit.Test;
 
 import java.io.IOException;
 
+import static org.junit.Assert.assertEquals;
+
 public class OrderCountJsonReaderTest {
     @Test public void testEmptyOrders() throws IOException {
-      OrderCountJsonReader.main(new String[]{"./src/test/resources/emptyOrders.json"});
+      assertEquals(OrderCountJsonReader.run(new String[]{"./src/test/resources/emptyOrders.json"}), 0);
     }
     @Test public void testOrders() throws IOException {
-      OrderCountJsonReader.main(new String[]{"./src/test/resources/orders.json"});
+      assertEquals(OrderCountJsonReader.run(new String[]{"./src/test/resources/orders.json"}), 3);
     }
     @Test public void testReadyOrders() throws IOException {
-      OrderCountJsonReader.main(new String[]{"-r", "./src/test/resources/readyOrders.json"});
+      assertEquals(OrderCountJsonReader.run(new String[]{"-r", "./src/test/resources/readyOrders.json"}), 2);
     }
 }
