@@ -9,7 +9,7 @@ export const station = {
   ]
 };
 
-export function readingsOutsideRange(station, min, max, range) {
+export function readingsOutsideRange(station, range) {
 	return station.readings.filter(r => r.temp < range.min || r.temp > range.max);
 }
 
