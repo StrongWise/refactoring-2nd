@@ -17,12 +17,7 @@ describe('combine-functions-into-transform', () => {
   it('client 3', () => {
     const rawReading = acquireReading();
     const aReading = enrichReading(rawReading);
-    const basicChargeAmount = calculateBaseCharge(aReading);
-
+    const basicChargeAmount = aReading.baseCharge;
     expect(basicChargeAmount).equal(10000);
-
-    function calculateBaseCharge(aReading) {
-      return baseRate(aReading.month, aReading.year) * aReading.quantity;
-    }
   });
 })
