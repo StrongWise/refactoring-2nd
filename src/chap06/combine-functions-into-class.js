@@ -1,3 +1,4 @@
+const base = 10
 export class Reading {
 	constructor(data) {
 		this._customer = data._customer;
@@ -20,6 +21,9 @@ export class Reading {
   get baseCharge() {
     return baseRate(this.month, this.year) * this.quantity;
   }
+  get taxableCharge() {
+    return  Math.max(0, base - taxThreshold(this.year));
+  }
 }
 
 export function acquireReading() {
@@ -36,8 +40,4 @@ export function baseRate(month, year) {
 }
 export function taxThreshold(year) {
   return 5
-}
-
-export function taxableChargeFn(base, aReading) {
-  return Math.max(0, base - taxThreshold(aReading.year));
 }
