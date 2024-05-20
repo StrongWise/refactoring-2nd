@@ -1,4 +1,4 @@
-import {acquireReading, baseRate, taxThreshold} from "../../src/chap06/combine-functions-into-class.js";
+import {acquireReading, baseRate, Reading, taxThreshold} from "../../src/chap06/combine-functions-into-class.js";
 import {expect} from "chai";
 
 describe('combine-functions-into-class', () => {
@@ -18,12 +18,9 @@ describe('combine-functions-into-class', () => {
     expect(taxableCharge).equal(5);
   });
   it('client 3', () => {
-    const aReading = acquireReading();
-    const basicChargeAmount = calculateBaseCharge(aReading);
-
+    const rawReading = acquireReading();
+    const aReading = new Reading(rawReading);
+    const basicChargeAmount = aReading.calculateBaseCharge;
     expect(basicChargeAmount).equal(10000);
-    function calculateBaseCharge(aReading) {
-      return baseRate(aReading.month, aReading.year) * aReading.quantity;
-    }
   });
 })
