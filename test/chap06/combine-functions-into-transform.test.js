@@ -20,4 +20,12 @@ describe('combine-functions-into-transform', () => {
     const basicChargeAmount = aReading.baseCharge;
     expect(basicChargeAmount).equal(10000);
   });
+  it('original record cannot be changed', () => {
+    const rawReading = acquireReading();
+    const aReading = enrichReading(rawReading);
+    expect(rawReading.customer).equal(aReading.customer);
+    expect(rawReading.quantity).equal(aReading.quantity);
+    expect(rawReading.month).equal(aReading.month);
+    expect(rawReading.year).equal(aReading.year);
+  });
 })
