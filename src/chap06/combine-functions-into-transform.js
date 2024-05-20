@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 export class Reading {
 	constructor(data) {
 		this._customer = data._customer;
@@ -33,4 +35,9 @@ export function baseRate(month, year) {
 }
 export function taxThreshold(year) {
   return 5
+}
+
+export function enrichReading(original) {
+  const result = _.cloneDeep(original);
+  return result;
 }

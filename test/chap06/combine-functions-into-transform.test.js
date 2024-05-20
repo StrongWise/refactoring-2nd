@@ -1,6 +1,5 @@
 import {expect} from "chai";
-import {acquireReading, baseRate, taxThreshold} from "../../src/chap06/combine-functions-into-transform.js";
-import {enrichReading} from "../../src/chap06/combine-functions-into-transform-origin.js";
+import {acquireReading, baseRate, taxThreshold, enrichReading} from "../../src/chap06/combine-functions-into-transform.js";
 describe('combine-functions-into-transform', () => {
   it('client 1', () => {
     const rawReading = acquireReading();

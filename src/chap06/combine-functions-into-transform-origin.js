@@ -37,7 +37,3 @@ export function taxThreshold(year) {
   return 5
 }
 
-export function enrichReading(original) {
-  const result = _.cloneDeep(original);
-  return result;
-}
