@@ -20,7 +20,7 @@ describe('combine-functions-into-class', () => {
   it('client 3', () => {
     const rawReading = acquireReading();
     const aReading = new Reading(rawReading);
-    const basicChargeAmount = aReading.calculateBaseCharge;
+    const basicChargeAmount = aReading.baseCharge;
     expect(basicChargeAmount).equal(10000);
   });
 })
