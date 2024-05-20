@@ -18,4 +18,11 @@ describe('encapsulate-variable', () => {
     expect(spaceship.owner.firstName).equal('레베카');
     expect(spaceship.owner.lastName).equal('파슨스');
   });
+  it('value encapsulate', () => {
+    const owner1 = defaultOwner();
+    expect(owner1.lastName).equal('파울러');
+    const owner2 = defaultOwner();
+    owner2.lastName = '파슨스';
+    expect(owner1.lastName).equal('파울러');
+  });
 });
