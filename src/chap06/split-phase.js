@@ -6,14 +6,15 @@ function applyShipping(priceOrder, shippingMethod) {
   return price;
 }
 
-export function priceOrder(product, quantity, shippingMethod) {
-	const basePrice = product.basePrice * quantity;
-	const discount =
-		Math.max(quantity - product.discountThreshold, 0) *
-		product.basePrice *
-		product.discountRate;
+function calculatePricingData(product, quantity) {
+  const basePrice = product.basePrice * quantity;
+  const discount = Math.max(quantity - product.discountThreshold, 0)
+    * product.basePrice * product.discountRate;
+  return {basePrice: basePrice, quantity: quantity, discount: discount};
+}
 
-  const priceOrder = {basePrice: basePrice, quantity: quantity, discount: discount};
+export function priceOrder(product, quantity, shippingMethod) {
+  const priceOrder = calculatePricingData(product, quantity);
   const price = applyShipping(priceOrder, shippingMethod);
   return price;
 }
