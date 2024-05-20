@@ -16,8 +16,7 @@ public class OrderCountJsonReader {
   }
 
   static long run(String[] args) throws IOException {
-    CommandLine commandLine = parseCommandLine(args);
-    return countOrders(commandLine);
+      return countOrders(parseCommandLine(args));
   }
 
   private static CommandLine parseCommandLine(String[] args) {
