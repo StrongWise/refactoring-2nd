@@ -3,14 +3,18 @@ import {readingsOutsideRange, station} from "../../src/chap06/introduce-paramete
 
 describe('introduce-parameter-object', () => {
   it('readingsOutsideRange', () => {
-    let result = readingsOutsideRange(station, 50, 55);
+    const operatingPlan = {temperatureFloor:50, temperatureCeiling: 55}
+    let result = readingsOutsideRange(station, operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling);
     expect(result[0].temp).to.equal(47);
     expect(result[1].temp).to.equal(58);
   });
   it('readingsOutsideRangeEdge', () => {
-    let result = readingsOutsideRange(station, 0, 57);
+    let operatingPlan = {temperatureFloor:0, temperatureCeiling: 57}
+    let result = readingsOutsideRange(station, operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling);
     expect(result[0].temp).to.equal(58);
-    result = readingsOutsideRange(station, 48, 60);
+
+    operatingPlan = {temperatureFloor: 48, temperatureCeiling: 60}
+    result = readingsOutsideRange(station, operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling);
     expect(result[0].temp).to.equal(47);
   });
 });
