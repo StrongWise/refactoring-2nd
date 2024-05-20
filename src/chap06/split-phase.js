@@ -1,4 +1,4 @@
-function applyShipping(basePrice, shippingMethod, quantity, discount) {
+function applyShipping(priceOrder, basePrice, shippingMethod, quantity, discount) {
   const shippingPerCase = (basePrice > shippingMethod.discountThreshold)
     ? shippingMethod.discountedFree : shippingMethod.feePerCase;
   const shippingCost = quantity * shippingPerCase;
@@ -13,7 +13,8 @@ export function priceOrder(product, quantity, shippingMethod) {
 		product.basePrice *
 		product.discountRate;
 
-  const price = applyShipping(basePrice, shippingMethod, quantity, discount);
+  const priceOrder = {};
+  const price = applyShipping(priceOrder, basePrice, shippingMethod, quantity, discount);
   return price;
 }
 
