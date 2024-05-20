@@ -1,5 +1,5 @@
 import {expect} from "chai";
-import {getDefaultOwner, setDefaultOwner, defaultOwner} from "../../src/chap06/encapsulate-variable.js";
+import {getDefaultOwner, setDefaultOwner} from "../../src/chap06/encapsulate-variable.js";
 
 describe('encapsulate-variable', () => {
   it('get spaceship owner', () => {
