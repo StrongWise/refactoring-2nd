@@ -1,7 +1,8 @@
 import {expect} from "chai";
 import assert from "node:assert";
 import _ from "lodash";
-import {acquireReading, baseRate, taxThreshold, enrichReading} from "../../src/chap06/combine-functions-into-transform.js";
+import {acquireReading, enrichReading, taxThreshold} from "../../src/chap06/combine-functions-into-transform.js";
+
 describe('combine-functions-into-transform', () => {
   it('client 1', () => {
     const rawReading = acquireReading();
@@ -12,8 +13,7 @@ describe('combine-functions-into-transform', () => {
   it('client 2', () => {
     const rawReading = acquireReading();
     const aReading = enrichReading(rawReading);
-    const base = aReading.baseCharge;
-    const taxableCharge = Math.max(0, base - taxThreshold(aReading.year));
+    const taxableCharge = Math.max(0, aReading.baseCharge - taxThreshold(aReading.year));
     expect(taxableCharge).equal(9995);
   });
   it('client 3', () => {
