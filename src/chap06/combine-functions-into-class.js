@@ -37,3 +37,7 @@ export function baseRate(month, year) {
 export function taxThreshold(year) {
   return 5
 }
+
+export function taxableChargeFn(base, aReading) {
+  return Math.max(0, base - taxThreshold(aReading.year));
+}
