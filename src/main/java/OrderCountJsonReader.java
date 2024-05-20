@@ -19,6 +19,7 @@ public class OrderCountJsonReader {
     if (args.length == 0) throw new RuntimeException("파일명을 입력하세요.");
     CommandLine commandLine = new CommandLine();
     String filename = args[args.length - 1];
+    commandLine.onlyCountReady = Stream.of(args).anyMatch(arg -> "-r".equals(arg));
     return countOrders(commandLine, args, filename);
   }
 
@@ -26,7 +27,6 @@ public class OrderCountJsonReader {
     File input = Paths.get(filename).toFile();
     ObjectMapper mapper = new ObjectMapper();
     Order[] orders = mapper.readValue(input, Order[].class);
-    commandLine.onlyCountReady = Stream.of(args).anyMatch(arg -> "-r".equals(arg));
     if (commandLine.onlyCountReady) {
       return Stream.of(orders)
         .filter(o -> "ready".equals(o.status))
