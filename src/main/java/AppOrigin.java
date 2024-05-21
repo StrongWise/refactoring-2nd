@@ -4,7 +4,7 @@ import java.io.File;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-public class OrderCountJsonReaderOrigin {
+public class AppOrigin {
     public static void main(String[] args) {
         try {
           if (args.length == 0) throw new RuntimeException("파일명을 입력하세요.");

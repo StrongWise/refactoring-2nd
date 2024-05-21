@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-public class OrderCountJsonReader {
+public class App {
   public static void main(String[] args) {
     try {
       System.out.println(run(args));
