@@ -1,5 +1,6 @@
 import {Course, Person, readBasicCourseNames} from "../../src/chap07/encapsulate-collection.js";
 import {expect} from "chai";
+import assert from "node:assert";
 
 describe('encapsulate-collection', () => {
   let aPerson;
@@ -17,8 +18,12 @@ describe('encapsulate-collection', () => {
     expect(aPerson.courses[3].name).to.equal('History');
   });
   it('person removeCourse', () => {
-    aPerson.removeCourse(aPerson.courses[1], () => {console.log('no')});
+    aPerson.removeCourse(aPerson.courses[1]);
     expect(aPerson.courses[0].name).to.equal('Korean');
     expect(aPerson.courses[1].name).to.equal('Math');
+  });
+  it('person removeCourse throw RangeError', () => {
+    assert.throws(() => aPerson.removeCourse(null), assert.RangeError);
+    assert.throws(() => aPerson.removeCourse(new Course('History', false)), assert.RangeError);
   });
 });
