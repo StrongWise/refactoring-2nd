@@ -5,6 +5,7 @@ import {
   simpleRecordEncapsulate
 } from "../../src/chap07/encapsulate-record.js";
 import {expect} from "chai";
+import assert from "node:assert";
 
 describe('encapsulate-record', () => {
   it('simple record encapsulate', () => {
@@ -44,7 +45,9 @@ describe('encapsulate-record', () => {
     let amount = 100;
     let laterYear = '2016';
 
-    expect(nestedRecordEncapsulate(new CustomerData(customerData), customerID, year, month, amount, laterYear))
+    const customer = new CustomerData(customerData);
+    expect(nestedRecordEncapsulate(customer, customerID, year, month, amount, laterYear))
       .equal('100{"laterAmount":50,"change":-50}');
+    assert.deepEqual(customer.rawData, customerData);
   });
 });
