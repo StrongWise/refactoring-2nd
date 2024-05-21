@@ -25,14 +25,11 @@ public class App {
     File input = Paths.get(commandLine.filename()).toFile();
     ObjectMapper mapper = new ObjectMapper();
     Order[] orders = mapper.readValue(input, Order[].class);
-    if (onlyCountReady(args)) {
+    if (commandLine.onlyCountReady()) {
       return Stream.of(orders).filter(o -> "ready".equals(o.status)).count();
     } else {
       return orders.length;
     }
   }
 
-  private static boolean onlyCountReady(String[] args) {
-    return Stream.of(args).anyMatch(arg -> "-r".equals(arg));
-  }
 }
