@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -13,5 +14,8 @@ public class AppTest {
     }
     @Test public void testReadyOrders() throws IOException {
       assertEquals(App.run(new String[]{"-r", "./src/test/resources/readyOrders.json"}), 2);
+    }
+    @Test public void testNoArgs() {
+      Assert.assertThrows(RuntimeException.class, () -> App.run(new String[]{}));
     }
 }
