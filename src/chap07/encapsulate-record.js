@@ -37,15 +37,15 @@ export class Organization {
 export function nestedRecordEncapsulate(customerData, customerID, year, month, amount, laterYear) {
   let result = '';
   getRawDataOfCustomers()[customerID].usages[year][month] = amount; // 쓰기 예
+  result += getRawDataOfCustomers()[customerID].usages[year][month];
+  result += JSON.stringify(compareUsage(customerID, laterYear, month));
+  return result;
+
   function compareUsage(customerID, laterYear, month) { // 읽기 예
     const later = getRawDataOfCustomers()[customerID].usages[laterYear][month];
     const earlier = getRawDataOfCustomers()[customerID].usages[laterYear - 1][month];
     return { laterAmount: later, change: later - earlier };
   }
-
-  result += getRawDataOfCustomers()[customerID].usages[year][month];
-  result += JSON.stringify(compareUsage(customerID, laterYear, month));
-  return result;
 
   function getRawDataOfCustomers() {
     return customerData;
