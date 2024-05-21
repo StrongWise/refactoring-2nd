@@ -37,7 +37,7 @@ export class Organization {
 export function nestedRecordEncapsulate(customerData, customerID, year, month, amount, laterYear) {
   let result = '';
   setRawDataOfCustomers(customerData);
-  getRawDataOfCustomers()[customerID].usages[year][month] = amount; // 쓰기 예
+  setUsage(customerID, year, month, amount); // 쓰기 예
   result += getRawDataOfCustomers()[customerID].usages[year][month];
   result += JSON.stringify(compareUsage(customerID, laterYear, month));
   return result;
@@ -47,18 +47,18 @@ export function nestedRecordEncapsulate(customerData, customerID, year, month, a
     const earlier = getRawDataOfCustomers()[customerID].usages[laterYear - 1][month];
     return { laterAmount: later, change: later - earlier };
   }
-
   function getCustomerData() {
     return customerData;
   }
-
   function getRawDataOfCustomers() {
     return customerData._data;
   }
-
   function setRawDataOfCustomers(arg) {
     customerData = new CustomerData(arg);
   }
+	function setUsage(customerID, year, month, amount) {
+		getRawDataOfCustomers()[customerID].usages[year][month] = amount;
+	}
 }
 
 class CustomerData {
