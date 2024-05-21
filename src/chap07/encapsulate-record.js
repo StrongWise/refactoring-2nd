@@ -40,13 +40,13 @@ export function nestedRecordEncapsulate(customerData, customerID, year, month, a
   let result = '';
 
   getCustomerData().setUsage(customerID, year, month, amount); // 쓰기 예
-  result += getCustomerData().usage(customerID, year, month);
+  result += getCustomerData().rawData[customerID].usages[year][month];
   result += JSON.stringify(compareUsage(customerID, laterYear, month));
   return result;
 
   function compareUsage(customerID, laterYear, month) { // 읽기 예
-    const later = getCustomerData().usage(customerID, laterYear, month);
-    const earlier = getCustomerData().usage(customerID, laterYear - 1, month);
+    const later = getCustomerData().rawData[customerID].usages[laterYear][month];
+    const earlier = getCustomerData().rawData[customerID].usages[laterYear - 1][month];
     return { laterAmount: later, change: later - earlier };
   }
   function getCustomerData() {
