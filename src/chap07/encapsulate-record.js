@@ -7,6 +7,15 @@ export function simpleRecordEncapsulate(organization, newName) {
   return result;
 
   function getRawDataOfOrganization() {
+    return organization._data;
+  }
+  function getOrganization() {
     return organization;
+  }
+}
+
+export class Organization {
+  constructor(data) {
+    this._data = data;
   }
 }
