@@ -6,7 +6,9 @@ describe('encapsulate-collection', () => {
   let aPerson;
   beforeEach(() => {
     aPerson = new Person('StrongWise');
-    aPerson.courses = readBasicCourseNames().map(name => new Course(name, false));
+    for (const name of readBasicCourseNames()) {
+      aPerson.addCourse(new Course(name, false));
+    }
   });
   it('person setter', () => {
     expect(aPerson.courses[0].name).to.equal('Korean');
