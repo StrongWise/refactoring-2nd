@@ -1,4 +1,9 @@
-import {nestedRecordEncapsulate, Organization, simpleRecordEncapsulate} from "../../src/chap07/encapsulate-record.js";
+import {
+  CustomerData,
+  nestedRecordEncapsulate,
+  Organization,
+  simpleRecordEncapsulate
+} from "../../src/chap07/encapsulate-record.js";
 import {expect} from "chai";
 
 describe('encapsulate-record', () => {
@@ -39,7 +44,7 @@ describe('encapsulate-record', () => {
     let amount = 100;
     let laterYear = '2016';
 
-    expect(nestedRecordEncapsulate(customerData, customerID, year, month, amount, laterYear))
+    expect(nestedRecordEncapsulate(new CustomerData(customerData), customerID, year, month, amount, laterYear))
       .equal('100{"laterAmount":50,"change":-50}');
   });
 });

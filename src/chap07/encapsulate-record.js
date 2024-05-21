@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 export function simpleRecordEncapsulate(organization, newName) {
   let result = '';
 
@@ -36,7 +38,7 @@ export class Organization {
 
 export function nestedRecordEncapsulate(customerData, customerID, year, month, amount, laterYear) {
   let result = '';
-  setRawDataOfCustomers(customerData);
+
   getCustomerData().setUsage(customerID, year, month, amount); // 쓰기 예
   result += getRawDataOfCustomers()[customerID].usages[year][month];
   result += JSON.stringify(compareUsage(customerID, laterYear, month));
@@ -58,7 +60,7 @@ export function nestedRecordEncapsulate(customerData, customerID, year, month, a
   }
 }
 
-class CustomerData {
+export class CustomerData {
 	constructor(data) {
 		this._data = data;
 	}
