@@ -22,7 +22,7 @@ describe('encapsulate-collection', () => {
     expect(aPerson.courses[0].name).to.equal('Korean');
     expect(aPerson.courses[1].name).to.equal('Math');
   });
-  it('person removeCourse throw RangeError', () => {
+  it('should throw RangeError', () => {
     assert.throws(() => aPerson.removeCourse(null), assert.RangeError);
     assert.throws(() => aPerson.removeCourse(new Course('History', false)), assert.RangeError);
   });
