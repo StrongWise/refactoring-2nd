@@ -43,7 +43,7 @@ export function nestedRecordEncapsulate(customerData, customerID, year, month, a
     return { laterAmount: later, change: later - earlier };
   }
 
-  result += customerData[customerID].usages[year][month];
+  result += getRawDataOfCustomers()[customerID].usages[year][month];
   result += JSON.stringify(compareUsage(customerID, laterYear, month));
   return result;
 
