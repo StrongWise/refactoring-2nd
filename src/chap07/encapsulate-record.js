@@ -53,7 +53,7 @@ export function nestedRecordEncapsulate(customerData, customerID, year, month, a
     return customerData;
   }
   function getRawDataOfCustomers() {
-    return customerData._data;
+    return customerData.rawData;
   }
   function setRawDataOfCustomers(arg) {
     customerData = new CustomerData(arg);
