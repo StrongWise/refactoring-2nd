@@ -33,3 +33,17 @@ export class Organization {
     this._country = aString;
   }
 }
+
+export function nestedRecordEncapsulate(customerData, customerID, year, month, amount, laterYear) {
+  let result = '';
+  customerData[customerID].usages[year][month] = amount; // 쓰기 예
+  function compareUsage(customerID, laterYear, month) { // 읽기 예
+    const later = customerData[customerID].usages[laterYear][month];
+    const earlier = customerData[customerID].usages[laterYear - 1][month];
+    return { laterAmount: later, change: later - earlier };
+  }
+
+  result += customerData[customerID].usages[year][month];
+  result += JSON.stringify(compareUsage(customerID, laterYear, month));
+  return result;
+}
