@@ -9,7 +9,7 @@ export class Person {
 		this._name = arg;
 	}
 	get telephoneNumber() {
-		return this._telephoneNumber.telephoneNumber;
+		return this._telephoneNumber.toString();
 	}
 	get officeNumber() {
 		return this._telephoneNumber.number;
@@ -41,4 +41,7 @@ export class TelephoneNumber {
 	set areaCode(arg) {
 		this._areaCode = arg;
 	}
+  toString() {
+    return `(${this.areaCode}) ${this.number}`;
+  }
 }
