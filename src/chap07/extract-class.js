@@ -9,7 +9,7 @@ export class Person {
 		this._name = arg;
 	}
 	get telephoneNumber() {
-		return `(${this.officeAreaCode}) ${this.officeNumber}`;
+		return this._telephoneNumber.telephoneNumber;
 	}
 	get officeNumber() {
 		return this._telephoneNumber._officeNumber;
@@ -26,6 +26,9 @@ export class Person {
 }
 
 export class TelephoneNumber {
+	get telephoneNumber() {
+		return `(${this.officeAreaCode}) ${this.officeNumber}`;
+	}
 	get officeNumber() {
 		return this._officeNumber;
 	}
