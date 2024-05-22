@@ -12,33 +12,33 @@ export class Person {
 		return this._telephoneNumber.telephoneNumber;
 	}
 	get officeNumber() {
-		return this._telephoneNumber._officeNumber;
+		return this._telephoneNumber.number;
 	}
 	set officeNumber(arg) {
-		this._telephoneNumber._officeNumber = arg;
+		this._telephoneNumber.number = arg;
 	}
 	get officeAreaCode() {
-		return this._telephoneNumber._officeAreaCode;
+		return this._telephoneNumber.areaCode;
 	}
 	set officeAreaCode(arg) {
-		this._telephoneNumber._officeAreaCode = arg;
+		this._telephoneNumber.areaCode = arg;
 	}
 }
 
 export class TelephoneNumber {
 	get telephoneNumber() {
-		return `(${this.officeAreaCode}) ${this.officeNumber}`;
+		return `(${this.areaCode}) ${this.number}`;
 	}
-	get officeNumber() {
-		return this._officeNumber;
+	get number() {
+		return this._number;
 	}
-	set officeNumber(arg) {
-		this._officeNumber = arg;
+	set number(arg) {
+		this._number = arg;
 	}
-	get officeAreaCode() {
-		return this._officeAreaCode;
+	get areaCode() {
+		return this._areaCode;
 	}
-	set officeAreaCode(arg) {
-		this._officeAreaCode = arg;
+	set areaCode(arg) {
+		this._areaCode = arg;
 	}
 }
