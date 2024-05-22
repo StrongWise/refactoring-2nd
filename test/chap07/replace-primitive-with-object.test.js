@@ -9,7 +9,7 @@ describe('replace-primitive-with-object', () => {
     orders.push(new Order({priority: "rush"}));
     orders.push(new Order({priority: "high"}));
 
-    const highPriorityCount = orders.filter(o => "high" === o.priority || "rush" === o.priority).length;
+    const highPriorityCount = orders.filter(o => "high" === o.priorityString || "rush" === o.priorityString).length;
     expect(highPriorityCount).to.equal(3);
   });
 });
