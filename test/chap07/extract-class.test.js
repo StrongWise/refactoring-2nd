@@ -2,7 +2,7 @@ import {Person} from "../../src/chap07/extract-class.js";
 import {expect} from "chai";
 
 describe('extract-class', () => {
-  it('', () => {
+  it('check telephoneNumber', () => {
     const person = new Person();
     person.name = 'StrongWise';
     person.officeAreaCode = '02';

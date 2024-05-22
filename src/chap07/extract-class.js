@@ -14,6 +14,9 @@ export class Person {
 	set officeAreaCode(arg) {
 		this._officeAreaCode = arg;
 	}
+}
+
+export class TelephoneNumber {
 	get officeNumber() {
 		return this._officeNumber;
 	}
