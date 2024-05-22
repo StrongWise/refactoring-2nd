@@ -11,6 +11,12 @@ export class Person {
 	get telephoneNumber() {
 		return `(${this.officeAreaCode}) ${this.officeNumber}`;
 	}
+	get officeNumber() {
+		return this._telephoneNumber._officeNumber;
+	}
+	set officeNumber(arg) {
+		this._telephoneNumber._officeNumber = arg;
+	}
 	get officeAreaCode() {
 		return this._telephoneNumber._officeAreaCode;
 	}
