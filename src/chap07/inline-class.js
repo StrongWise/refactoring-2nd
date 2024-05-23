@@ -3,7 +3,7 @@ export class TrackingInformation {
 
 export class Shipment {
 	get trackingInfo() {
-		return `${this._trackingInformation._shippingCompany}: ${this._trackingInformation._trackingNumber}`;
+		return `${this._shippingCompany}: ${this._trackingNumber}`;
 	}
 	get trackingInformation() {
 		return this._trackingInformation;
@@ -12,15 +12,15 @@ export class Shipment {
 		this._trackingInformation = aTrackingInformation;
 	}
   get shippingCompany() {
-		return this._trackingInformation._shippingCompany;
+		return this._shippingCompany;
 	}
 	set shippingCompany(arg) {
-		this._trackingInformation._shippingCompany = arg;
+		this._shippingCompany = arg;
 	}
 	get trackingNumber() {
-		return this._trackingInformation._trackingNumber;
+		return this._trackingNumber;
 	}
 	set trackingNumber(arg) {
-		this._trackingInformation._trackingNumber = arg;
+		this._trackingNumber = arg;
 	}
 }
