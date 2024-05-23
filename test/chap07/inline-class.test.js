@@ -1,4 +1,4 @@
-import {TrackingInformation, Shipment} from "../../src/chap07/inline-class.js";
+import {Shipment} from "../../src/chap07/inline-class.js";
 import {expect} from "chai";
 
 describe('inline-class', () => {
@@ -6,7 +6,6 @@ describe('inline-class', () => {
     const request = {vendor: 'CJ 대한통운', trackingNumber: 1234};
 
     const aShipment = new Shipment();
-    aShipment.trackingInformation = new TrackingInformation();
     aShipment.shippingCompany = request.vendor;
     aShipment.trackingNumber = request.trackingNumber;
 

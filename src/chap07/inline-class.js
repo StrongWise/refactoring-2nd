@@ -1,15 +1,6 @@
-export class TrackingInformation {
-}
-
 export class Shipment {
 	get trackingInfo() {
-		return `${this._shippingCompany}: ${this._trackingNumber}`;
-	}
-	get trackingInformation() {
-		return this._trackingInformation;
-	}
-	set trackingInformation(aTrackingInformation) {
-		this._trackingInformation = aTrackingInformation;
+		return `${this.shippingCompany}: ${this.trackingNumber}`;
 	}
   get shippingCompany() {
 		return this._shippingCompany;
