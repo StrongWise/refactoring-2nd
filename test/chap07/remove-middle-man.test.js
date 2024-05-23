@@ -8,7 +8,7 @@ describe('remove-middle-man', () => {
     aPerson.department = new Department();
     aPerson.manager = "Lab"
 
-    manager = aPerson.manager;
+    manager = aPerson.department.manager;
     expect(manager).to.equal("Lab");
   });
 });
