@@ -7,8 +7,8 @@ describe('inline-class', () => {
 
     const aShipment = new Shipment();
     aShipment.trackingInformation = new TrackingInformation();
-    aShipment.trackingInformation.shippingCompany = request.vendor;
-    aShipment.trackingInformation.trackingNumber = request.trackingNumber;
+    aShipment.shippingCompany = request.vendor;
+    aShipment.trackingNumber = request.trackingNumber;
 
     expect(aShipment.trackingInfo).to.equal('CJ 대한통운: 1234');
   });
