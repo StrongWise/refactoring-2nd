@@ -1,6 +1,5 @@
 import {TrackingInformation, Shipment} from "../../src/chap07/inline-class.js";
 import {expect} from "chai";
-import * as async_hooks from "async_hooks";
 
 describe('inline-class', () => {
   it('check shipment TrackingInformation', () => {
