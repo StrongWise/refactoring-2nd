@@ -11,6 +11,12 @@ export class Person {
   set department(arg) {
     this._department = arg;
   }
+  get manager() {
+    return this._department._manager;
+  }
+  get chargeCode() {
+    return this._department._chargeCode;
+  }
 }
 
 export class Department {

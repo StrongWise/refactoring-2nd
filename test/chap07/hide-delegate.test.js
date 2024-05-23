@@ -10,7 +10,7 @@ describe('hide delegate', () => {
     aPerson.department = aDepartment;
 
     expect(aPerson.name).to.eql("StrongWise");
-    expect(aPerson.department.manager).to.eql("Lab");
-    expect(aPerson.department.chargeCode).to.eql("1");
+    expect(aPerson.manager).to.eql("Lab");
+    expect(aPerson.chargeCode).to.eql("1");
   });
 });
