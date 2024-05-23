@@ -3,7 +3,7 @@ import {expect} from "chai";
 import * as async_hooks from "async_hooks";
 
 describe('inline-class', () => {
-  it('check TrackingInformation display', () => {
+  it('check shipment TrackingInformation', () => {
     const request = {vendor: 'CJ 대한통운'};
 
     const aShipment = {trackingInformation: new TrackingInformation()}
@@ -13,6 +13,6 @@ describe('inline-class', () => {
     const shipment = new Shipment();
     shipment.trackingInformation = aShipment.trackingInformation;
 
-    expect(aShipment.trackingInformation.display).to.equal('CJ 대한통운: 1234');
+    expect(shipment.trackingInfo).to.equal('CJ 대한통운: 1234');
   });
 });
