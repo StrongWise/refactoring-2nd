@@ -26,11 +26,10 @@ export function call2(availableResources, allocatedResource) {
   let result;
   if (availableResources.length === 0) {
     result = createResource();
-    allocatedResource.push(result);
   } else {
     result = allocatedResource.pop();
-    allocatedResource.push(result);
   }
+  allocatedResource.push(result);
   return result;
 }
 function createResource() {
