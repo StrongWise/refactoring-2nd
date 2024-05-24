@@ -1,4 +1,4 @@
-import {Account, trackSummary} from "../../src/chap08/move-function.js";
+import {Account, trackSummary, AccountType} from "../../src/chap08/move-function.js";
 import assert from "node:assert";
 import {expect} from "chai";
 
@@ -36,21 +36,21 @@ describe('move-function', () => {
 
   describe('Account', () => {
     it('has bankCharge of 4.5 when daysOverdrawn is 0', () => {
-      expect(new Account({isPremium:true}, 0).bankCharge).to.equal(4.5);
-      expect(new Account({isPremium:false}, 0).bankCharge).to.equal(4.5);
+      expect(new Account(new AccountType(true), 0).bankCharge).to.equal(4.5);
+      expect(new Account(new AccountType(false), 0).bankCharge).to.equal(4.5);
     });
 
     it('has bankCharge more than 4.5 when daysOverdrawn is more than 0', () => {
-      expect(new Account({isPremium:true}, 1).bankCharge).to.equal(14.5);
-      expect(new Account({isPremium:false}, 1).bankCharge).to.equal(6.25);
+      expect(new Account(new AccountType(true), 1).bankCharge).to.equal(14.5);
+      expect(new Account(new AccountType(false), 1).bankCharge).to.equal(6.25);
     });
 
     it('has no overdraftCharge when no overdrawn for non premium', () => {
-      expect(new Account({isPremium:false}, 0).overdraftCharge).to.equal(0);
+      expect(new Account(new AccountType(false), 0).overdraftCharge).to.equal(0);
     });
 
     it('has a basis overdraftCharge even when no overdrawn for non premium', () => {
-      expect(new Account({isPremium:true}, 0).overdraftCharge).to.equal(10);
+      expect(new Account(new AccountType(true), 0).overdraftCharge).to.equal(10);
     });
   });
 });
