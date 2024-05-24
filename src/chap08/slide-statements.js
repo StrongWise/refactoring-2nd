@@ -1,19 +1,10 @@
 export function call() {
   const pricingPlan = retrievePricingPlan();
   const order = retrieveOrder();
-  const baseCharge = pricingPlan.base;
-  const chargePerUnit = pricingPlan.unit;
-
-  const units = order.units;
-  let discountableUnits = Math.max(units - pricingPlan.discountThreshold, 0);
-
-  let discount;
-  discount = discountableUnits * pricingPlan.discountFactor;
+  let discountableUnits = Math.max(order.units - pricingPlan.discountThreshold, 0);
+  let discount = discountableUnits * pricingPlan.discountFactor;
   if (order.isRepeat) discount += 20;
-
-  let charge;
-  charge = baseCharge + units * chargePerUnit;
-
+  let charge= pricingPlan.base + order.units * pricingPlan.unit;
   charge = charge - discount;
   chargeOrder(charge);
 
