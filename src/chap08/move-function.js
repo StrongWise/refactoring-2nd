@@ -47,7 +47,7 @@ export class Account {
   }
 
   get overdraftCharge() { // 초과 인출 이자 계산
-    return this.type.overdraftCharge(this.daysOverdrawn);
+    return this.type.overdraftCharge(this);
   }
 }
 
@@ -58,14 +58,14 @@ export class AccountType {
   get isPremium() {
     return this._isPremium;
   }
-  overdraftCharge(daysOverdrawn) { // 초과 인출 이자 계산
+  overdraftCharge(account) { // 초과 인출 이자 계산
     if (this.isPremium) {
       const baseCharge = 10;
-      if (daysOverdrawn <= 7)
+      if (account.daysOverdrawn <= 7)
         return baseCharge;
       else
-        return baseCharge + (daysOverdrawn - 7) * 0.85;
+        return baseCharge + (account.daysOverdrawn - 7) * 0.85;
     } else
-      return daysOverdrawn * 1.75;
+      return account.daysOverdrawn * 1.75;
   }
 }
