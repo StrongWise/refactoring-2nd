@@ -1,4 +1,5 @@
 import {Customer, Account, AccountType} from "../../src/chap08/move-field.js";
+import {expect} from "chai";
 import assert from "node:assert";
 import Money from 'js-money';
 
@@ -9,7 +10,8 @@ describe('move-field', () => {
 	});
 
   it('', () => {
-    const account = new Account(1, new AccountType('asd'), '0.01');
-    console.log(account);
+    const interestRate = '0.01';
+    const account = new Account(1, new AccountType('asd', interestRate));
+    expect(account.interestRate).to.equal(interestRate);
   });
 });
