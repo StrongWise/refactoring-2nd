@@ -47,7 +47,7 @@ export class Account {
   }
 
   get interestRate() {
-    return this._type._interestRate;
+    return this._type.interestRate;
   }
 }
 
