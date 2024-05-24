@@ -7,11 +7,17 @@ export function renderPerson(outStream, person) {
   return result.join('\n');
 }
 
+function zznew(p) {
+  return [
+    `<p>제목: ${p.title}</p>`,
+    emitPhotoData(p)
+  ].join('\n');
+}
+
 export function photoDiv(p) {
   return [
     '<div>',
-    `<p>제목: ${p.title}</p>`,
-    emitPhotoData(p),
+    zznew(p),
     '</div>',
   ].join('\n');
 }
