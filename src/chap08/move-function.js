@@ -57,3 +57,22 @@ export class Account {
       return this.daysOverdrawn * 1.75;
   }
 }
+
+export class AccountType {
+  constructor(isPremium) {
+    this._isPremium = isPremium;
+  }
+  get isPremium() {
+    return this._isPremium;
+  }
+  overdraftCharge(daysOverdrawn) { // 초과 인출 이자 계산
+    if (this.isPremium) {
+      const baseCharge = 10;
+      if (daysOverdrawn <= 7)
+        return baseCharge;
+      else
+        return baseCharge + (daysOverdrawn - 7) * 0.85;
+    } else
+      return daysOverdrawn * 1.75;
+  }
+}
