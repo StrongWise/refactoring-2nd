@@ -1,7 +1,5 @@
 export function findYoungestAgeAndCalculateTotalSalary(people) {
-  let totalSalary = calculateTotalSalary(people);
-  let youngest = findYoungestAge(people);
-  return `youngestAge: ${youngest}, totalSalary: ${totalSalary}`;
+  return `youngestAge: ${(findYoungestAge(people))}, totalSalary: ${(calculateTotalSalary(people))}`;
 }
 
 function calculateTotalSalary(people) {
