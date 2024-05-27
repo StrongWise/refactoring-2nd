@@ -3,11 +3,7 @@ export function findYoungestAgeAndCalculateTotalSalary(people) {
 }
 
 function calculateTotalSalary(people) {
-  let result = 0;
-  for (const p of people) {
-    result += p.salary;
-  }
-  return result;
+  return people.reduce((total, p) => total + p.salary, 0);
 }
 
 function findYoungestAge(people) {
