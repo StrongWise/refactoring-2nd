@@ -11,9 +11,9 @@ export function distanceTravelled(scenario, time) {
 	}
 	return result;
 }
-export function discount(originalInputValue, quantity) {
-  let result = originalInputValue
-  if (result > 50) result = result - 2;
+export function discount(inputValue, quantity) {
+  let result = inputValue
+  if (inputValue > 50) result = result - 2;
 	if (quantity > 100) result = result - 1;
 	return result;
 }
