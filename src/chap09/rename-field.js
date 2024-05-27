@@ -1,15 +1,15 @@
 export class Organization {
   constructor(data) {
-    this._name = data.name;
+    this._title = (data.title !== undefined) ? data.title : data.name;
     this._country = data.country;
   }
 
   get name() {
-    return this._name;
+    return this._title;
   }
 
   set name(aName) {
-    this._name = aName;
+    this._title = aName;
   }
 
   get country() {
