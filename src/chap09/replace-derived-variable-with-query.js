@@ -1,12 +1,10 @@
-import assert from "node:assert";
 export class ProductionPlan {
 	constructor(data) {
 		this._adjustments = data.adjustments;
 		this._production = data.production;
 	}
 	get production() {
-    assert(this._production === this.calculatedProduction);
-		return this._production;
+		return this.calculatedProduction;
 	}
   get calculatedProduction() {
     return this._adjustments
@@ -14,6 +12,5 @@ export class ProductionPlan {
   }
 	applyAdjustment(anAdjustment) {
 		this._adjustments.push(anAdjustment);
-		this._production += anAdjustment.amount;
 	}
 }
