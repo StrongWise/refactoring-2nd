@@ -1,6 +1,6 @@
 export class ProductionPlan {
-	constructor(data) {
-		this._production = data.production;
+	constructor(production) {
+		this._production = production;
 		this._adjustments = [];
 	}
 	get production() {

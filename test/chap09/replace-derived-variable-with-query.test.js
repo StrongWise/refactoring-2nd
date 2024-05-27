@@ -3,7 +3,8 @@ import {expect} from "chai";
 
 describe('replace-derived-variable-with-query', () => {
   it('Production', () => {
-    const productionPlan = new ProductionPlan({adjustments: [{amount: 10000}], production: 10000});
+    const productionPlan = new ProductionPlan(0);
+    productionPlan.applyAdjustment({amount: 10000});
     expect(productionPlan.production).to.equal(10000);
 
     productionPlan.applyAdjustment({amount: 2000});
