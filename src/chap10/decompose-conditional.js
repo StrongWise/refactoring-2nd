@@ -1,12 +1,5 @@
 export function charge(aDate, plan, quantity) {
-  let charge;
-
-  if (summer())
-    charge = summerCharge();
-  else
-    charge = regularCharge();
-
-  return charge;
+  return summer() ? summerCharge() : regularCharge();
 
   function regularCharge() {
     return quantity * plan.regularRate + plan.regularServiceCharge;
