@@ -80,7 +80,7 @@ export class Rating {
   get value() {
     const vpf = this.voyageProfitFactor;
     const vr = this.voyageRisk;
-    const chr = this.captionHistoryRisk;
+    const chr = this.captainHistoryRisk;
     // console.log('voyageProfitFactor > ', vpf);
     // console.log('voyageRisk > ', vr);
     // console.log('captainHistoryRisk > ', chr);
@@ -97,11 +97,10 @@ export class Rating {
     return Math.max(result, 0);
   }
 
-  get captionHistoryRisk() {
+  get captainHistoryRisk() {
     let result = 1;
     if (this.history.length < 5) result += 4;
     result += this.history.filter(v => v.profit < 0).length;
-    if (this.voyage.zone === '중공' && this.hasChinaHistory) result -= 2;
     return Math.max(result, 0);
   }
 
@@ -135,4 +134,8 @@ function createRating(voyage, history) {
   }
 }
 class ExperiencedChinaRating extends Rating {
+  get captainHistoryRisk() {
+    const result = super.captainHistoryRisk - 2;
+    return Math.max(result, 0);
+  }
 }
