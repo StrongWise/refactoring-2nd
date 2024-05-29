@@ -68,7 +68,7 @@ class NorwegianBlueParrot extends Bird {
 }
 
 export function rating(voyage, history) {
-  return new Rating(voyage, history).value;
+  return createRating(voyage, history).value;
 }
 
 export class Rating {
