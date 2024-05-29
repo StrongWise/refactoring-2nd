@@ -153,6 +153,6 @@ class ExperiencedChinaRating extends Rating {
   }
 
   get historyLengthFactor() {
-    return (this.history.length > 8) ? 1 : 0;
+    return (this.history.length > 10) ? 1 : 0;
   }
 }
