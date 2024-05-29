@@ -7,11 +7,11 @@ export function speeds(birds) {
 }
 
 function plumage(bird) {
-  return new Bird(bird).plumage;
+  return createBird(bird).plumage;
 }
 
 function airSpeedVelocity(bird) {
-  return new Bird(bird).airSpeedVelocity;
+  return createBird(bird).airSpeedVelocity;
 }
 
 export class Bird {
@@ -47,7 +47,7 @@ export class Bird {
 }
 
 function createBird(bird) {
-  switch (this.type) {
+  switch (bird.type) {
     case '유럽 제비':
       return new EuropeanSwallow(bird);
     case '아프리카 제비':
