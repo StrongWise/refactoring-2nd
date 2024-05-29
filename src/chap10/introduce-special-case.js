@@ -47,4 +47,14 @@ export class UnknownCustomer {
   }
   set billingPlan(arg) {
   }
+
+  get paymentHistory() {
+    return new NullPaymentHistory();
+  }
+}
+
+class NullPaymentHistory  {
+  get weeksDelinquentInLastYear() {
+    return 0;
+  }
 }

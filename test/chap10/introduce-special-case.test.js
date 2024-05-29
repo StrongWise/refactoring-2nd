@@ -51,7 +51,7 @@ describe('introduce-special-case', () => {
 });
 
 function getWeeksDelinquent(aCustomer) {
-  return (isUnknown(aCustomer)) ? 0 : aCustomer.paymentHistory.weeksDelinquentInLastYear;
+  return aCustomer.paymentHistory.weeksDelinquentInLastYear;
 }
 
 function isUnknown(arg) {
