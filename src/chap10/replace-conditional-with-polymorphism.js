@@ -1,6 +1,7 @@
 export function plumages(birds) {
   return new Map(birds.map(b => [b.name, plumage(b)]));
 }
+
 export function speeds(birds) {
   return new Map(birds.map(b => [b.name, airSpeedVelocity(b)]));
 }
@@ -43,4 +44,26 @@ export class Bird {
         return null;
     }
   }
+}
+
+function createBird(bird) {
+  switch (this.type) {
+    case '유럽 제비':
+      return new EuropeanSwallow(bird);
+    case '아프리카 제비':
+      return new AfricanSwallow(bird);
+    case '노르웨이 파랑 앵무':
+      return new NorwegianBlueParrot(bird);
+    default:
+      return new Bird(bird);
+  }
+}
+
+class EuropeanSwallow extends Bird{
+}
+
+class AfricanSwallow extends Bird{
+}
+
+class NorwegianBlueParrot extends Bird{
 }
