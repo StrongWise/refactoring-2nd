@@ -66,7 +66,19 @@ describe('replace-conditional-with-polymorphism', () => {
   });
 
   it('rating', () => {
-    expect(rating({zone: '중공', length: 15}, [{zone: '중공'},{},{},{},{},{},{},{},{},{},{}])).to.equal('A');
-    expect(rating({zone: '동인도', length: 20}, [{zone: '중공'}])).to.equal('B');
+    const voyage = {zone: '서인도', length: 10};
+    const history = [
+      {zone: '동인도', profit: 5},
+      {zone: '서인도', profit: 15},
+      {zone: '중공', profit: -2},
+      {zone: '서아프리카', profit: 7},
+    ];
+    expect(rating(voyage, history)).to.equal('B');
+
+    const voyage1 = {zone: '중공', length: 5};
+    const history1 = [
+      {zone: '중공', profit: -2},
+    ];
+    expect(rating(voyage1, history1)).to.equal('A');
   });
 });
