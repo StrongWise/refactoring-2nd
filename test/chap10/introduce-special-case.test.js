@@ -1,4 +1,4 @@
-import {Customer, Site} from "../../src/chap10/introduce-special-case.js";
+import {Customer, Site, UnknownCustomer} from "../../src/chap10/introduce-special-case.js";
 import {expect} from "chai";
 
 describe('introduce-special-case', () => {
@@ -71,7 +71,7 @@ function getWeeksDelinquent(aCustomer) {
 }
 
 function isUnknown(arg) {
-  if (!((arg instanceof Customer) || (arg === '미확인 고객')))
+  if (!((arg instanceof Customer) || (arg instanceof UnknownCustomer)))
     throw new Error(`잘못된 값과 비교: <${arg}>`);
-  return (arg === '미확인 고객');
+  return arg.isUnknown;
 }
