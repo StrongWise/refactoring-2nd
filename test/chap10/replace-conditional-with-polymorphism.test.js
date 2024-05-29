@@ -1,4 +1,4 @@
-import {plumages, speeds} from "../../src/chap10/replace-conditional-with-polymorphism.js";
+import {plumages, rating, speeds} from "../../src/chap10/replace-conditional-with-polymorphism.js";
 import {expect} from "chai";
 
 describe('replace-conditional-with-polymorphism', () => {
@@ -48,7 +48,6 @@ describe('replace-conditional-with-polymorphism', () => {
   ];
   it('plumages', () => {
     const plumageMap = plumages(birds);
-    console.log(plumageMap);
     expect(plumageMap.get('기본 유럽 제비')).to.equal('보통이다');
     expect(plumageMap.get('보통 아프리카 제비')).to.equal('보통이다');
     expect(plumageMap.get('지친 아프리카 제비')).to.equal('지쳤다');
@@ -58,12 +57,16 @@ describe('replace-conditional-with-polymorphism', () => {
   });
   it('speeds', () => {
     const speedMap = speeds(birds);
-    console.log(speedMap);
     expect(speedMap.get('기본 유럽 제비')).to.equal(35);
     expect(speedMap.get('보통 아프리카 제비')).to.equal(40);
     expect(speedMap.get('지친 아프리카 제비')).to.equal(32);
     expect(speedMap.get('예쁜 노르웨이 파랑 앵무')).to.equal(19);
     expect(speedMap.get('그을린 노르웨이 파랑 앵무')).to.equal(50);
     expect(speedMap.get('까치')).null;
+  });
+
+  it('rating', () => {
+    expect(rating({zone: '중공', length: 15}, [{zone: '중공'},{},{},{},{},{},{},{},{},{},{}])).to.equal('A');
+    expect(rating({zone: '동인도', length: 20}, [{zone: '중공'}])).to.equal('B');
   });
 });
