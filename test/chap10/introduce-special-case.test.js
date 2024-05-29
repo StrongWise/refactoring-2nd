@@ -51,7 +51,6 @@ describe('introduce-special-case', () => {
 });
 
 function getCustomerName(aCustomer) {
-  let customerName;
   if (aCustomer === '미확인 고객') return '거주자';
   else return aCustomer.name;
 }
