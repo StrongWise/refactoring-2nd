@@ -67,10 +67,6 @@ class NorwegianBlueParrot extends Bird {
   }
 }
 
-// console.log('voyageProfitFactor > ', vpf);
-// console.log('voyageRisk > ', vr);
-// console.log('captainHistoryRisk > ', chr);
-// console.log('result > ', vpf * 3 > vr + chr * 2 ? 'A' : 'B');
 export function rating(voyage, history) {
   return new Rating(voyage, history).value;
 }
@@ -85,6 +81,10 @@ export class Rating {
     const vpf = this.voyageProfitFactor;
     const vr = this.voyageRisk;
     const chr = this.captionHistoryRisk;
+    // console.log('voyageProfitFactor > ', vpf);
+    // console.log('voyageRisk > ', vr);
+    // console.log('captainHistoryRisk > ', chr);
+    // console.log('result > ', vpf * 3 > vr + chr * 2 ? 'A' : 'B');
     if (vpf * 3 > vr + chr * 2) return 'A';
     else return 'B';
   }
@@ -125,4 +125,14 @@ export class Rating {
   get hasChinaHistory() {
     return this.history.some(v => '중공' === v.zone);
   }
+}
+
+function createRating(voyage, history) {
+  if (voyage.zone === '중공' && history.some(v => '중공' === v.zone)) {
+    return new ExperiencedChinaRating(voyage, history);
+  } else {
+    return new Rating(voyage, history);
+  }
+}
+class ExperiencedChinaRating extends Rating {
 }
