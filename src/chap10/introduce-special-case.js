@@ -42,4 +42,9 @@ export class UnknownCustomer {
   get name() {
     return '거주자';
   }
+  get billingPlan() {
+    return 'registry.billingPlans.basic'
+  }
+  set billingPlan(arg) {
+  }
 }
