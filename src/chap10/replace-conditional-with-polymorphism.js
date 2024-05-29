@@ -109,6 +109,12 @@ export class Rating {
 
     if (this.voyage.zone === '중공') result += 1;
     if (this.voyage.zone === '동인도') result += 1;
+    result += this.voyageAndHistoryLengthFactor;
+    return result;
+  }
+
+  get voyageAndHistoryLengthFactor() {
+    let result = 0;
     if (this.voyage.zone === '중공' && this.hasChinaHistory) {
       result += 3;
       if (this.history.length > 10) result += 1;
