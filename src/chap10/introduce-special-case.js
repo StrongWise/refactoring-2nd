@@ -39,4 +39,7 @@ export class UnknownCustomer {
   get isUnknown() {
     return true;
   }
+  get name() {
+    return '거주자';
+  }
 }
