@@ -110,11 +110,11 @@ export class Rating {
     if (this.voyage.zone === '중공') result += 1;
     if (this.voyage.zone === '동인도') result += 1;
     result += this.historyLengthFactor;
-    result += this.voyageAndHistoryLengthFactor;
+    result += this.voyageLengthFactor;
     return result;
   }
 
-  get voyageAndHistoryLengthFactor() {
+  get voyageLengthFactor() {
     return (this.voyage.length > 14) ? -1 : 0;
   }
 
@@ -141,7 +141,7 @@ class ExperiencedChinaRating extends Rating {
     return Math.max(result, 0);
   }
 
-  get voyageAndHistoryLengthFactor() {
+  get voyageLengthFactor() {
     let result = 0;
     result += 3;
     if (this.voyage.length > 12) result += 1;
