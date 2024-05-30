@@ -4,11 +4,11 @@ function checkForMiscreants(people) {
     if (!found) {
       if (p === '조커') {
         sendAlert(p);
-        found = true;
+        return true;
       }
       if (p === '사루만') {
         sendAlert(p);
-        found = true;
+        return true;
       }
     }
   }
