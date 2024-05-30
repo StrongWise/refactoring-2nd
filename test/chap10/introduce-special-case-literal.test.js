@@ -70,6 +70,6 @@ function getWeeksDelinquent(aCustomer) {
   return isUnknown(aCustomer) ? 0 : aCustomer.paymentHistory.weeksDelinquentInLastYear;
 }
 
-function isUnknown(aCustomer) {
-  return aCustomer === '미확인 고객';
+function isUnknown(arg) {
+  return arg.isUnknown;
 }
