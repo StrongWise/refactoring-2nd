@@ -39,5 +39,6 @@ export class Customer {
 function createUnknownCustomer() {
   return {
     isUnknown: true,
+    name: '거주자',
   };
 }

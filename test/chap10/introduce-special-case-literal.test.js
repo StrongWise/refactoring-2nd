@@ -51,8 +51,7 @@ describe('introduce-special-case', () => {
 });
 
 function getCustomerName(aCustomer) {
-  if (isUnknown(aCustomer)) return '거주자';
-  else return aCustomer.name;
+  return aCustomer.name;
 }
 
 function getPlan(aCustomer) {
