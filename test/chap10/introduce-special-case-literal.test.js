@@ -25,10 +25,10 @@ describe('introduce-special-case', () => {
   });
 
   it('client 2', () => {
-    expect(getPlan(aCustomer)).to.equal('Monthly');
+    expect(aCustomer.billingPlan).to.equal('Monthly');
   });
   it('undefined client 2', () => {
-    expect(getPlan(uCustomer)).to.equal('registry.billingPlans.basic');
+    expect(uCustomer.billingPlan).to.equal('registry.billingPlans.basic');
   });
 
   it('client 3', () => {
@@ -38,7 +38,7 @@ describe('introduce-special-case', () => {
 
   it('undefined client 3', () => {
     setNewPlan(uCustomer);
-    expect(uCustomer.billingPlan).undefined;
+    expect(uCustomer.billingPlan).to.equal('registry.billingPlans.basic');
   });
   it('client 4', () => {
     expect(getWeeksDelinquent(aCustomer)).to.equal(10);
@@ -49,10 +49,6 @@ describe('introduce-special-case', () => {
   });
 
 });
-
-function getPlan(aCustomer) {
-  return isUnknown(aCustomer) ? 'registry.billingPlans.basic' : aCustomer.billingPlan;
-}
 
 function setNewPlan(aCustomer) {
   const newPlan = 'Weekly'
