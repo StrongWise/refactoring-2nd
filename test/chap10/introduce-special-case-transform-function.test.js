@@ -19,6 +19,9 @@ function enrichSite(inputSite) {
     isUnknown: true,
     name: '거주자',
     billingPlan: 'registry.billingPlans.basic',
+    paymentHistory: {
+      weeksDelinquentInLastYear: 0,
+    }
   };
   if (isUnknown(result.customer)) result.customer = unknownCustomer;
   else result.customer.isUnknown = false;
@@ -65,11 +68,11 @@ describe('introduce-special-case', () => {
     expect(uCustomer.billingPlan).to.equal('registry.billingPlans.basic');
   });
   it('client 4', () => {
-    expect(getWeeksDelinquent(aCustomer)).to.equal(7);
+    expect(aCustomer.paymentHistory.weeksDelinquentInLastYear).to.equal(7);
   });
 
   it('undefined client 4', () => {
-    expect(getWeeksDelinquent(uCustomer)).to.equal(0);
+    expect(uCustomer.paymentHistory.weeksDelinquentInLastYear).to.equal(0);
   });
 
 });
@@ -79,10 +82,6 @@ function setNewPlan(aCustomer) {
   if (!isUnknown(aCustomer)) {
     aCustomer.billingPlan = newPlan;
   }
-}
-
-function getWeeksDelinquent(aCustomer) {
-  return (isUnknown(aCustomer)) ? 0 : aCustomer.paymentHistory.weeksDelinquentInLastYear;
 }
 
 function isUnknown(aCustomer) {
