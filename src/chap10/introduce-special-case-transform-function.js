@@ -14,6 +14,9 @@ export class Site {
   get customer() {
     return this._customer;
   }
+  set customer(arg) {
+    this._customer = arg;
+  }
 }
 
 export class Customer {

@@ -14,7 +14,13 @@ function acquireSiteData() {
 }
 
 function enrichSite(inputSite) {
-  return _.cloneDeep(inputSite);
+  const result = _.cloneDeep(inputSite);
+  const unknownCustomer = {
+    isUnknown: true,
+  };
+  if (isUnknown(result.customer)) result.customer = unknownCustomer;
+  else result.customer.isUnknown = false;
+  return result;
 }
 function uAcquireSiteData() {
   return new Site({name: '물류창고 15', location: 'Malden MA', customer: '미확인 고객'});
@@ -87,5 +93,6 @@ function getWeeksDelinquent(aCustomer) {
 }
 
 function isUnknown(aCustomer) {
-  return aCustomer === '미확인 고객';
+  if (aCustomer === '미확인 고객') return true
+  else return aCustomer.isUnknown;
 }
