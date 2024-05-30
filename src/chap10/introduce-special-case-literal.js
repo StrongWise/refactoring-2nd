@@ -37,12 +37,12 @@ export class Customer {
 }
 
 function createUnknownCustomer() {
-  return {
+  return Object.freeze({
     isUnknown: true,
     name: '거주자',
     billingPlan: 'registry.billingPlans.basic',
     paymentHistory: {
       weeksDelinquentInLastYear: 0,
     }
-  };
+  });
 }
