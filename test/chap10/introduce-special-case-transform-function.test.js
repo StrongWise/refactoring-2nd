@@ -67,22 +67,25 @@ describe('introduce-special-case', () => {
 });
 
 function getCustomerName(aCustomer) {
-  let customerName;
-  if (aCustomer === '미확인 고객') return '거주자';
+  if (isUnknown(aCustomer)) return '거주자';
   else return aCustomer.name;
 }
 
 function getPlan(aCustomer) {
-  return (aCustomer === '미확인 고객') ? 'registry.billingPlans.basic' : aCustomer.billingPlan;
+  return (isUnknown(aCustomer)) ? 'registry.billingPlans.basic' : aCustomer.billingPlan;
 }
 
 function setNewPlan(aCustomer) {
   const newPlan = 'Weekly'
-  if (aCustomer !== '미확인 고객') {
+  if (!isUnknown(aCustomer)) {
     aCustomer.billingPlan = newPlan;
   }
 }
 
 function getWeeksDelinquent(aCustomer) {
-  return (aCustomer === '미확인 고객') ? 0 : aCustomer.paymentHistory.weeksDelinquentInLastYear;
+  return (isUnknown(aCustomer)) ? 0 : aCustomer.paymentHistory.weeksDelinquentInLastYear;
+}
+
+function isUnknown(aCustomer) {
+  return aCustomer === '미확인 고객';
 }
