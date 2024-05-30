@@ -52,11 +52,8 @@ describe('introduce-special-case', () => {
 
 function setNewPlan(aCustomer) {
   const newPlan = 'Weekly'
-  if (!isUnknown(aCustomer)) {
+  if (!aCustomer.isUnknown) {
     aCustomer.billingPlan = newPlan;
   }
 }
 
-function isUnknown(arg) {
-  return arg.isUnknown;
-}
