@@ -1,5 +1,6 @@
 import {Customer, Site} from "../../src/chap10/introduce-special-case-transform-function.js";
 import {expect} from "chai";
+import _ from 'lodash';
 
 function acquireSiteData() {
   const customer = new Customer({
@@ -12,6 +13,9 @@ function acquireSiteData() {
   return new Site({name: '애크미 보스턴', location: 'Malden MA', customer: customer});
 }
 
+function enrichSite(inputSite) {
+  return _.cloneDeep(inputSite);
+}
 function uAcquireSiteData() {
   return new Site({name: '물류창고 15', location: 'Malden MA', customer: '미확인 고객'});
 }
@@ -20,9 +24,11 @@ describe('introduce-special-case', () => {
   let aCustomer
   let uCustomer
   beforeEach(() => {
-    const site = acquireSiteData();
+    const rawSite = acquireSiteData();
+    const site = enrichSite(rawSite);
     aCustomer = site.customer;
-    const uSite = uAcquireSiteData();
+    const uRawSite = uAcquireSiteData();
+    const uSite = enrichSite(uRawSite);
     uCustomer = uSite.customer;
   })
 
