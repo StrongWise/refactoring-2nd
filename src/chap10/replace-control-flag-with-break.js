@@ -1,15 +1,5 @@
 function checkForMiscreants(people) {
-  for (const p of people) {
-    if (p === '조커') {
-      sendAlert(p);
-      return true;
-    }
-    if (p === '사루만') {
-      sendAlert(p);
-      return true;
-    }
-  }
-  return false;
+  return people.some(p => ['조커', '사루만'].includes(p))
 }
 
 export function findMiscreant(people) {
