@@ -18,10 +18,10 @@ describe('introduce-special-case', () => {
 
 
   it('client 1', () => {
-    expect(getCustomerName(aCustomer)).to.equal('StrongWise');
+    expect(aCustomer.name).to.equal('StrongWise');
   });
   it('undefined client 1', () => {
-    expect(getCustomerName(uCustomer)).to.equal('거주자');
+    expect(uCustomer.name).to.equal('거주자');
   });
 
   it('client 2', () => {
@@ -49,10 +49,6 @@ describe('introduce-special-case', () => {
   });
 
 });
-
-function getCustomerName(aCustomer) {
-  return aCustomer.name;
-}
 
 function getPlan(aCustomer) {
   return isUnknown(aCustomer) ? 'registry.billingPlans.basic' : aCustomer.billingPlan;
