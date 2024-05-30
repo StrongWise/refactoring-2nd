@@ -17,6 +17,7 @@ function enrichSite(inputSite) {
   const result = _.cloneDeep(inputSite);
   const unknownCustomer = {
     isUnknown: true,
+    name: '거주자',
   };
   if (isUnknown(result.customer)) result.customer = unknownCustomer;
   else result.customer.isUnknown = false;
@@ -40,10 +41,10 @@ describe('introduce-special-case', () => {
 
 
   it('client 1', () => {
-    expect(getCustomerName(aCustomer)).to.equal('애크미 산업');
+    expect(aCustomer.name).to.equal('애크미 산업');
   });
   it('undefined client 1', () => {
-    expect(getCustomerName(uCustomer)).to.equal('거주자');
+    expect(uCustomer.name).to.equal('거주자');
   });
 
   it('client 2', () => {
@@ -71,11 +72,6 @@ describe('introduce-special-case', () => {
   });
 
 });
-
-function getCustomerName(aCustomer) {
-  if (isUnknown(aCustomer)) return '거주자';
-  else return aCustomer.name;
-}
 
 function getPlan(aCustomer) {
   return (isUnknown(aCustomer)) ? 'registry.billingPlans.basic' : aCustomer.billingPlan;
