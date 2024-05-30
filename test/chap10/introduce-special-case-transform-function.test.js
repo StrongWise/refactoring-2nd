@@ -18,6 +18,7 @@ function enrichSite(inputSite) {
   const unknownCustomer = {
     isUnknown: true,
     name: '거주자',
+    billingPlan: 'registry.billingPlans.basic',
   };
   if (isUnknown(result.customer)) result.customer = unknownCustomer;
   else result.customer.isUnknown = false;
@@ -48,10 +49,10 @@ describe('introduce-special-case', () => {
   });
 
   it('client 2', () => {
-    expect(getPlan(aCustomer)).to.equal('plan-451');
+    expect(aCustomer.billingPlan).to.equal('plan-451');
   });
   it('undefined client 2', () => {
-    expect(getPlan(uCustomer)).to.equal('registry.billingPlans.basic');
+    expect(uCustomer.billingPlan).to.equal('registry.billingPlans.basic');
   });
 
   it('client 3', () => {
@@ -61,7 +62,7 @@ describe('introduce-special-case', () => {
 
   it('undefined client 3', () => {
     setNewPlan(uCustomer);
-    expect(uCustomer.billingPlan).undefined;
+    expect(uCustomer.billingPlan).to.equal('registry.billingPlans.basic');
   });
   it('client 4', () => {
     expect(getWeeksDelinquent(aCustomer)).to.equal(7);
@@ -72,10 +73,6 @@ describe('introduce-special-case', () => {
   });
 
 });
-
-function getPlan(aCustomer) {
-  return (isUnknown(aCustomer)) ? 'registry.billingPlans.basic' : aCustomer.billingPlan;
-}
 
 function setNewPlan(aCustomer) {
   const newPlan = 'Weekly'
