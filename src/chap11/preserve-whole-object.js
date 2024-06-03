@@ -8,4 +8,8 @@ export class HeatingPlan {
     return (aNumberRange.low >= this._temperatureRange.low)
       && (aNumberRange.high <= this._temperatureRange.high);
 	}
+	withinRange2(bottom, top) {
+		return (bottom >= this._temperatureRange.low)
+      && (top <= this._temperatureRange.high);
+	}
 }
