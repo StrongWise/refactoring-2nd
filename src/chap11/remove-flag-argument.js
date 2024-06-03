@@ -1,7 +1,7 @@
-export function bookConcert(aCustomer, isPremium) {
-  if (isPremium) {
-    return 'Premium'
-  } else {
-    return 'Not Premium'
-  }
+export function premiumBookConcert(aCustomer) {
+  return 'Premium'
+}
+
+export function bookConcert(aCustomer) {
+  return 'Not Premium'
 }
