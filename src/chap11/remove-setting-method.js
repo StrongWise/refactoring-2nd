@@ -1,4 +1,7 @@
 export class Person {
+  constructor(id) {
+    this._id = id;
+  }
 	get name() {
 		return this._name;
 	}
@@ -7,8 +10,5 @@ export class Person {
 	}
 	get id() {
 		return this._id;
-	}
-	set id(arg) {
-		this._id = arg;
 	}
 }
