@@ -9,11 +9,7 @@ export class HeatingPlan {
     this._max = max;
   }
 
-  get targetTemperature() {
-    return this.xxNEWtargetTemperature(thermostat.selectedTemperature);
-  }
-
-  xxNEWtargetTemperature(selectedTemperature) {
+  targetTemperature(selectedTemperature) {
     if (selectedTemperature > this._max) return this._max;
     else if (selectedTemperature < this._min) return this._min;
     else return selectedTemperature;
@@ -21,9 +17,9 @@ export class HeatingPlan {
 }
 
 export function setAirConditioner(thePlan) {
-  if (thePlan.xxNEWtargetTemperature(thermostat.selectedTemperature) > thermostat.currentTemperature) {
+  if (thePlan.targetTemperature(thermostat.selectedTemperature) > thermostat.currentTemperature) {
     return 'setToHeat';
-  } else if (thePlan.xxNEWtargetTemperature(thermostat.selectedTemperature) < thermostat.currentTemperature) {
+  } else if (thePlan.targetTemperature(thermostat.selectedTemperature) < thermostat.currentTemperature) {
     return 'setToCool';
   } else {
     return 'setOff';
