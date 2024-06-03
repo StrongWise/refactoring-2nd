@@ -13,7 +13,7 @@ describe('replace-query-with-parameter', () => {
   });
 
   it('HeatingPlan', () => {
-    expect(new HeatingPlan(27, 29).targetTemperature).to.equal(27);
-    expect(new HeatingPlan(23, 24).targetTemperature).to.equal(24);
+    expect(new HeatingPlan(27, 29).xxNEWtargetTemperature(thermostat.selectedTemperature)).to.equal(27);
+    expect(new HeatingPlan(23, 24).xxNEWtargetTemperature(thermostat.selectedTemperature)).to.equal(24);
   });
 });

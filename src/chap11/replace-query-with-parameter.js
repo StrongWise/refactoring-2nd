@@ -21,9 +21,9 @@ export class HeatingPlan {
 }
 
 export function setAirConditioner(thePlan) {
-  if (thePlan.targetTemperature > thermostat.currentTemperature) {
+  if (thePlan.xxNEWtargetTemperature(thermostat.selectedTemperature) > thermostat.currentTemperature) {
     return 'setToHeat';
-  } else if (thePlan.targetTemperature < thermostat.currentTemperature) {
+  } else if (thePlan.xxNEWtargetTemperature(thermostat.selectedTemperature) < thermostat.currentTemperature) {
     return 'setToCool';
   } else {
     return 'setOff';
