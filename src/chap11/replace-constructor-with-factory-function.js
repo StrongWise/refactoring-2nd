@@ -17,3 +17,6 @@ export class Employee {
 export function createEmployee(name, typeCode) {
   return new Employee(name, typeCode);
 }
+export function createEngineer(name) {
+  return new Employee(name, 'E');
+}
