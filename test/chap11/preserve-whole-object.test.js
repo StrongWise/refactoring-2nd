@@ -15,11 +15,13 @@ describe('preserve-whole-object', () => {
     let aRoom = {daysTempRange: {low: 10, high: 20}}
     let low = aRoom.daysTempRange.low;
     let high = aRoom.daysTempRange.high;
-    expect(aPlan.withinRange2(low, high)).to.equal(true);
+    let isWithinRange = aPlan.withinRange2(low, high);
+    expect(isWithinRange).to.equal(true);
 
     aRoom = {daysTempRange: {low: 5, high: 20}}
     low = aRoom.daysTempRange.low;
     high = aRoom.daysTempRange.high;
-    expect(aPlan.withinRange2(low, high)).to.equal(false);
+    isWithinRange = aPlan.withinRange2(low, high);
+    expect(isWithinRange).to.equal(false);
   });
 });
