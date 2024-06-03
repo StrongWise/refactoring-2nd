@@ -13,3 +13,7 @@ export class Employee {
 		return { E: 'Engineer', M: 'Manager', S: 'Salesman' };
 	}
 }
+
+export function createEmployee(name, typeCode) {
+  return new Employee(name, typeCode);
+}
