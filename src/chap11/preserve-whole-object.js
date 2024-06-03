@@ -4,7 +4,7 @@ export class HeatingPlan {
 		this._temperatureRange.low = low;
 		this._temperatureRange.high = high;
   }
-  xxNEWwithinRange(aNumberRange) {
+  withinRange(aNumberRange) {
     return (aNumberRange.low >= this._temperatureRange.low)
       && (aNumberRange.high <= this._temperatureRange.high);
 	}
