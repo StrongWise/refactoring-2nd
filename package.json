@@ -27,6 +27,7 @@
   "dependencies": {
     "js-money": "^0.6.3",
     "lodash": "^4.17.21",
+    "luxon": "^3.4.4",
     "moment": "^2.30.1"
   }
 }
