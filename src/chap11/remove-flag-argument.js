@@ -22,7 +22,13 @@ export function regularDeliveryDate(anOrder) {
   return anOrder.placedOn.plus({days: 2 + deliveryTime});
 }
 
-export function deliveryDate(anOrder, isRush) {
+export function rushDeliveryDate2(anOrder) {
+  return deliveryDate2(anOrder, true);
+}
+export function regularDeliveryDate2(anOrder) {
+  return deliveryDate2(anOrder, false);
+}
+export function deliveryDate2(anOrder, isRush) {
   let result;
   let deliveryTime;
   if (anOrder.deliveryState === "MA" || anOrder.deliveryState === "CT") {
