@@ -5,18 +5,12 @@ export class ChargeCalculator {
 		this._provider = provider;
 	}
 
-	get baseCharge() {
-		return this._customer.baseRate * this._usage;
-	}
 	get charge() {
-		return this.baseCharge + this._provider.connectionCharge;
+    const baseCharge = this._customer.baseRate * this._usage
+		return baseCharge + this._provider.connectionCharge;
 	}
 }
 
 export function charge(customer, usage, provider) {
 	return new ChargeCalculator(customer, usage, provider).charge;
-}
-
-export function baseCharge(customer, usage, provider) {
-	return new ChargeCalculator(customer, usage, provider).baseCharge;
 }
