@@ -10,7 +10,7 @@ class ShippingRules {
 function localShippingRules(country) {
 	const data = countryData.shippingRules[country];
 	if (data) return new ShippingRules(data);
-	else return -23;
+	else throw new OrderProcessingError(-23);
 }
 
 function calculateShippingCosts(anOrder) {
@@ -25,8 +25,22 @@ export function mainFunc(orderData) {
   try {
 	  status = calculateShippingCosts(orderData);
   } catch (e) {
-    throw e;
+    if (e instanceof OrderProcessingError) {
+      errorList.push({ order: orderData, errorCode: status })
+      status = e.code
+    } else {
+      throw e;
+    }
   }
 	if (status < 0) errorList.push({ order: orderData, errorCode: status });
   return status;
+}
+
+export class OrderProcessingError extends Error {
+  constructor(errorCode) {
+    super(`주문 처리 오류: ${errorCode}`);
+    this.code = errorCode;
+  }
+
+  get name() {return "OrderProcessingError";}
 }
