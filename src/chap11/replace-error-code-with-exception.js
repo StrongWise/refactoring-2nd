@@ -20,18 +20,16 @@ function calculateShippingCosts(anOrder) {
 
 export function mainFunc(orderData) {
 	const errorList = [];
-  let status;
   try {
-	  status = calculateShippingCosts(orderData);
+	  calculateShippingCosts(orderData);
   } catch (e) {
     if (e instanceof OrderProcessingError) {
-      errorList.push({ order: orderData, errorCode: status })
-      status = e.code
+      errorList.push({ order: orderData, errorCode: e.code })
     } else {
       throw e;
     }
   }
-  return status;
+  return errorList;
 }
 
 export class OrderProcessingError extends Error {

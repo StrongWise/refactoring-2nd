@@ -3,7 +3,7 @@ import {expect} from "chai";
 
 describe('replace-error-code-with-exception', () => {
   it('status', () => {
-    expect(mainFunc({country: '123'})).to.equal(-23);
-    expect(mainFunc({country: 0})).to.equal(0);
+    expect((mainFunc({country: '123'}))[0].errorCode).to.equal(-23);
+    expect(mainFunc({country: 0})).empty;
   });
 });
