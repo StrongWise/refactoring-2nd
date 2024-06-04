@@ -16,3 +16,7 @@ export class ChargeCalculator {
 export function charge(customer, usage, provider) {
 	return new ChargeCalculator(customer, usage, provider).charge;
 }
+
+export function baseCharge(customer, usage, provider) {
+	return new ChargeCalculator(customer, usage, provider).baseCharge;
+}
