@@ -15,7 +15,7 @@ function localShippingRules(country) {
 
 function calculateShippingCosts(anOrder) {
 	const shippingRules = localShippingRules(anOrder.country);
-	if (shippingRules < 0) return shippingRules;
+	if (shippingRules < 0) throw new Error("오류 코드가 다 사라지지 않았습니다.");
 	return SUCCESS;
 }
 
