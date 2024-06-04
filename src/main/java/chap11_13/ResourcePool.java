@@ -15,14 +15,8 @@ public class ResourcePool {
   private List<Resource> allocated;
 
   public Resource get() {
-    Resource result = null;
-    if (available.isEmpty()) {
-      result = Resource.create();
-      allocated.add(result);
-    } else {
-      result = available.pop();
-      allocated.add(result);
-    }
+    Resource result = available.isEmpty() ? Resource.create() : available.pop();
+    allocated.add(result);
     return result;
   }
 }
