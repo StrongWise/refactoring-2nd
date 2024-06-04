@@ -13,14 +13,18 @@ public class ResourcePool {
 
   private Deque<Resource> available;
   private List<Resource> allocated;
+
   public Resource get() {
-    Resource result;
-    try {
-      result = available.pop();
-      allocated.add(result);
-    } catch (NoSuchElementException e) {
+    Resource result = null;
+    if (available.isEmpty()) {
       result = Resource.create();
       allocated.add(result);
+    } else {
+      try {
+        result = available.pop();
+        allocated.add(result);
+      } catch (NoSuchElementException e) {
+      }
     }
     return result;
   }
