@@ -3,7 +3,7 @@ import {expect} from "chai";
 
 describe('pull-up-method', () => {
   it('', () => {
-    expect(new Department().totalAnnualCost).to.equal(12);
+    expect(new Department().annualCost).to.equal(12);
     expect(new Employee().annualCost).to.equal(12);
     expect(new Party().monthlyCost).to.equal(1);
   });
