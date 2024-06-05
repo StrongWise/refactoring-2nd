@@ -3,16 +3,18 @@ import {expect} from "chai";
 
 describe('extract-superclass', () => {
   it('employee cost', () => {
-    const employee = new Employee('a', 1, 100);
+    const employee = new Employee('staff1', 1, 100);
     expect(employee.monthlyCost).to.equal(100);
     expect(employee.annualCost).to.equal(1200);
+    expect(employee.name).to.equal('staff1');
   });
 
   it('department total cost', () => {
-    const staff = [new Employee('a',1,100),new Employee('b',2,80)]
-    const department = new Department('b', staff);
+    const staff = [new Employee('staff1',1,100),new Employee('staff2',2,80)]
+    const department = new Department('Labs', staff);
     expect(department.totalMonthlyCost).to.equal(180);
     expect(department.totalAnnualCost).to.equal(2160);
     expect(department.headCount).to.equal(2);
+    expect(department.name).to.equal('Labs');
   });
 });
