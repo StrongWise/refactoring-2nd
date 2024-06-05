@@ -10,6 +10,10 @@ export class Employee extends Party {
     this._name = name;
     this._monthlyCost = monthlyCost;
   }
+
+  get name() {
+    return this._name;
+  }
 }
 
 export class Department extends Party {
@@ -17,5 +21,8 @@ export class Department extends Party {
     super();
     this._name = name;
     this._staff = staff;
-  }ee
+  }
+  get name() {
+    return this._name;
+  }
 }
