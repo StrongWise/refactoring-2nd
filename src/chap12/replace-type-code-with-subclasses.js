@@ -42,7 +42,16 @@ export class Employee2 {
   }
   get typeString() {return this._type.toString();}
   get type() {return this._type;}
-  set type(arg) {this._type = new EmployeeType(arg);}
+  set type(arg) {this._type = Employee2.createEmployeeType(arg);}
+
+  static createEmployeeType(aString) {
+    switch (aString) {
+      case 'engineer': return new Engineer2();
+      case 'salesperson': return new Salesperson2();
+      case 'manager': return new Manager2();
+      default: throw new Error(`${aString}라는 직원 유형은 없습니다.`);
+    }
+  }
 
   get capitalizedType() {
     return this.typeString.charAt(0).toUpperCase()
@@ -54,8 +63,16 @@ export class Employee2 {
 }
 
 class EmployeeType {
-  constructor(aString) {
-    this._value = aString;
-  }
-  toString() {return this._value;}
+}
+
+class Engineer2 extends EmployeeType {
+  toString() {return 'engineer';}
+}
+
+class Salesperson2 extends EmployeeType {
+  toString() {return 'salesperson';}
+}
+
+class Manager2 extends EmployeeType {
+  toString() {return 'manager';}
 }
