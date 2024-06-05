@@ -13,3 +13,13 @@ export class Male extends Person {
 export class Female extends Person {
   get genderCode() {return "F";}
 }
+
+export function createPerson(name) {
+  return new Person(name);
+}
+export function createMale(name) {
+  return new Male(name);
+}
+export function createFemale(name) {
+  return new Female(name);
+}
