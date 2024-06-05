@@ -1,13 +1,13 @@
 export class Party {
-	constructor() {
+	constructor(name) {
+    this._name = name;
 	}
 }
 
 export class Employee extends Party {
   constructor(name, id, monthlyCost) {
-    super();
+    super(name);
     this._id = id;
-    this._name = name;
     this._monthlyCost = monthlyCost;
   }
 
@@ -18,8 +18,7 @@ export class Employee extends Party {
 
 export class Department extends Party {
   constructor(name, staff) {
-    super();
-    this._name = name;
+    super(name);
     this._staff = staff;
   }
   get name() {
