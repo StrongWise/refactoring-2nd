@@ -35,13 +35,6 @@ export class Booking {
       ? this._premiumDelegate.hasDinner
       : undefined;
   }
-}
-
-export class PremiumBooking extends Booking {
-  constructor(show, date, extras) {
-    super(show, date);
-    this._extras = extras;
-  }
 
   _bePremium(extras) {
     this._premiumDelegate = new PremiumBookingDelegate(this, extras);
@@ -52,7 +45,7 @@ export function createBooking(show, date) {
   return new Booking(show, date);
 }
 export function createPremiumBooking(show, date, extras) {
-  const result = new PremiumBooking(show, date, extras);
+  const result = new Booking(show, date);
   result._bePremium(extras);
   return result;
 }
