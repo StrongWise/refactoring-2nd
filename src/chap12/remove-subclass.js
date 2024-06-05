@@ -7,7 +7,7 @@ export class Person {
   get genderCode() {return this._genderCode;}
 
   get isMale() {
-    return this instanceof Male;
+    return 'M' === this._genderCode;
   }
 }
 
@@ -27,10 +27,10 @@ function createPerson(aRecord) {
 }
 
 export function createMale(name) {
-  return new Male(name);
+  return new Person(name, 'M');
 }
 export function createFemale(name) {
-  return new Female(name);
+  return new Person(name, 'F');
 }
 
 export function loadFromInput(data) {
