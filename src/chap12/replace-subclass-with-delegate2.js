@@ -1,5 +1,10 @@
 export function createBird(data) {
-  return new Bird(data);
+  switch (data.type) {
+    case '노르웨이 파랑 앵무':
+      return new NorwegianBlueParrot(data);
+    default:
+      return new Bird(data);
+  }
 }
 
 export class Bird {
@@ -27,15 +32,27 @@ export class Bird {
   }
 
   get plumage() {
-    if (this._speciesDelegate instanceof NorwegianBlueParrotDelegate) {
-      return this._speciesDelegate.plumage;
-    } else {
-      return this._plumage || '보통이다';
-    }
+    return this._plumage || '보통이다';
   }
 
   get airSpeedVelocity() {
     return this._speciesDelegate.airSpeedVelocity;
+  }
+}
+
+export class NorwegianBlueParrot extends Bird {
+  constructor(data) {
+    super(data);
+    this._voltage = data.voltage;
+    this._isNailed = data.isNailed;
+  }
+
+  get plumage() {
+    return this._speciesDelegate.plumage;
+  }
+
+  get airSpeedVelocity() {
+    return (this._isNailed) ? 0 : 10 + this._voltage / 10;
   }
 }
 
