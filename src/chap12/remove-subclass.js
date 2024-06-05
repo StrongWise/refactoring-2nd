@@ -5,6 +5,9 @@ export class Person {
   get name() {return this._name;}
   get genderCode() {return "X";}
 
+  get isMale() {
+    return this instanceof Male;
+  }
 }
 
 export class Male extends Person {

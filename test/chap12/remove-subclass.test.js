@@ -10,7 +10,7 @@ import {expect} from "chai";
 describe('remove-subclass', () => {
   it('filter gender', () => {
     const people = [createMale('man'), createFemale('woman')];
-    const numberOfMales = people.filter(p => p instanceof Male).length;
+    const numberOfMales = people.filter(p => p.isMale).length;
     expect(numberOfMales).to.equal(1);
   });
 
