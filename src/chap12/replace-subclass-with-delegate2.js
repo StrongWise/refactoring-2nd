@@ -35,11 +35,11 @@ export class Bird {
     return this._plumage || '보통이다';
   }
 
-  get airSpeedVelocity() {return null;}
+  get airSpeedVelocity() {return this._speciesDelegate.airSpeedVelocity;}
 }
 
 export class EuropeanSwallow extends Bird {
-  get airSpeedVelocity() {return 35;}
+  get airSpeedVelocity() {return this._speciesDelegate.airSpeedVelocity;}
 }
 export class AfricanSwallow extends Bird {
   constructor(data) {
@@ -67,5 +67,5 @@ export class NorwegianBlueParrot extends Bird {
 }
 
 export class EuropeanSwallowDelegate {
-
+  get airSpeedVelocity() {return 35;}
 }
