@@ -1,5 +1,5 @@
 export class Employee {
-  constructor(name, type) {
+  constructor(name) {
     this._name = name;
   }
   toString() {
@@ -21,10 +21,9 @@ class Manager extends Employee {
 
 export function createEmployee(name, type) {
   switch (type) {
-    case 'engineer': return new Engineer(name, type);
-    case 'salesperson': return new Salesperson(name, type);
-    case 'manager': return new Manager(name, type);
+    case 'engineer': return new Engineer(name);
+    case 'salesperson': return new Salesperson(name);
+    case 'manager': return new Manager(name);
     default: throw new Error(`${type}라는 직원 유형은 없습니다.`);
   }
-  return new Employee(name, type);
 }
