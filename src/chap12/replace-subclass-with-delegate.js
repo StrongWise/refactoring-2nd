@@ -38,13 +38,19 @@ export class PremiumBooking extends Booking {
   get hasDinner() {
     return this._extras.hasOwnProperty('dinner') && !this.isPeakDay;
   }
+
+  _bePremium(extras) {
+    this._premiumDelegate = new PremiumBookingDelegate(this, extras);
+  }
 }
 
 export function createBooking(show, date) {
   return new Booking(show, date);
 }
 export function createPremiumBooking(show, date, extras) {
-  return new PremiumBooking(show, date, extras);
+  const result = new PremiumBooking(show, date, extras);
+  result._bePremium(extras);
+  return result;
 }
 
 export class PremiumBookingDelegate {
