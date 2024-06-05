@@ -29,16 +29,18 @@ export class Booking {
     const month = date.getMonth();
     return month === 5;
   }
+
+  get hasDinner() {
+    return (this._premiumDelegate)
+      ? this._premiumDelegate.hasDinner
+      : undefined;
+  }
 }
 
 export class PremiumBooking extends Booking {
   constructor(show, date, extras) {
     super(show, date);
     this._extras = extras;
-  }
-
-  get hasDinner() {
-    return this._extras.hasOwnProperty('dinner') && !this.isPeakDay;
   }
 
   _bePremium(extras) {
@@ -70,5 +72,9 @@ export class PremiumBookingDelegate {
   }
   extendBasePrice(base) {
     return Math.round(base + this._extras.premiumFee);
+  }
+
+  get hasDinner() {
+    return this._extras.hasOwnProperty('dinner') && !this._host.isPeakDay;
   }
 }
