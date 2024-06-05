@@ -1,7 +1,7 @@
 export class Person {
   constructor(name, genderCode) {
     this._name = name;
-    this._genderCode = genderCode || "X";
+    this._genderCode = genderCode;
   }
   get name() {return this._name;}
   get genderCode() {return this._genderCode;}
@@ -9,13 +9,6 @@ export class Person {
   get isMale() {
     return 'M' === this._genderCode;
   }
-}
-
-export class Male extends Person {
-  get genderCode() {return "M";}
-}
-export class Female extends Person {
-  get genderCode() {return "F";}
 }
 
 function createPerson(aRecord) {
