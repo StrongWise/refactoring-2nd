@@ -29,6 +29,7 @@ describe('replace-subclass-with-delegate', () => {
     const premiumBooking = createPremiumBooking(show, date, extras);
     expect(premiumBooking.basePrice).to.equal(1650);
     expect(premiumBooking.isPeakDay).true;
+    expect(premiumBooking.hasTalkback).true;
     expect(premiumBooking.hasDinner).false;
   });
   it('not PeakDay PremiumBooking', () => {
@@ -38,6 +39,7 @@ describe('replace-subclass-with-delegate', () => {
     const premiumBooking = createPremiumBooking(show, date, extras);
     expect(premiumBooking.basePrice).to.equal(1500);
     expect(premiumBooking.isPeakDay).false;
+    expect(premiumBooking.hasTalkback).true;
     expect(premiumBooking.hasDinner).true;
   });
 });
