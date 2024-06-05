@@ -64,3 +64,9 @@ export class NorwegianBlueParrot extends Bird {
 export class EuropeanSwallowDelegate {
   get airSpeedVelocity() {return 35;}
 }
+
+export class AfricanSwallowDelegate {
+  constructor(data) {
+    this._numberOfCoconuts = data.numberOfCoconuts;
+  }
+}
