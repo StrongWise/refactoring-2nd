@@ -30,9 +30,5 @@ export function createFemale(name) {
 }
 
 export function loadFromInput(data) {
-  const result = [];
-  data.forEach(aRecord => {
-    result.push(createPerson(aRecord, result));
-  })
-  return result;
+  return data.map(aRecord => createPerson(aRecord));
 }
