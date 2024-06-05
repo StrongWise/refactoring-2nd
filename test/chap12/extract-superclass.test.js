@@ -12,7 +12,7 @@ describe('extract-superclass', () => {
   it('department total cost', () => {
     const staff = [new Employee('staff1',1,100),new Employee('staff2',2,80)]
     const department = new Department('Labs', staff);
-    expect(department.totalMonthlyCost).to.equal(180);
+    expect(department.monthlyCost).to.equal(180);
     expect(department.totalAnnualCost).to.equal(2160);
     expect(department.headCount).to.equal(2);
     expect(department.name).to.equal('Labs');
