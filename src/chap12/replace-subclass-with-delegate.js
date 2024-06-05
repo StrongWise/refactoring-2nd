@@ -46,3 +46,10 @@ export function createBooking(show, date) {
 export function createPremiumBooking(show, date, extras) {
   return new PremiumBooking(show, date, extras);
 }
+
+export class PremiumBookingDelegate {
+  constructor(hostBooking, extras) {
+    this._host = hostBooking;
+    this._extras = extras;
+  }
+}
