@@ -20,8 +20,8 @@ export class Female extends Person {
 
 function createPerson(aRecord) {
   switch (aRecord.gender) {
-    case 'M': return new Male(aRecord.name);
-    case 'F': return new Female(aRecord.name);
+    case 'M': return new Person(aRecord.name, 'M');
+    case 'F': return new Person(aRecord.name, 'F');
     default: return  new Person(aRecord.name);
   }
 }

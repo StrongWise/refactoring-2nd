@@ -1,10 +1,8 @@
 import {
-  Male,
   createMale,
   createFemale,
   loadFromInput,
-  Person,
-  Female
+  Person
 } from "../../src/chap12/remove-subclass.js";
 import {expect} from "chai";
 describe('remove-subclass', () => {
@@ -22,7 +20,7 @@ describe('remove-subclass', () => {
     ];
     const people = loadFromInput(data);
     expect(people[0] instanceof Person).true;
-    expect(people[1] instanceof Male).true;
-    expect(people[2] instanceof Female).true;
+    expect(people[1] instanceof Person).true;
+    expect(people[2] instanceof Person).true;
   });
 });
