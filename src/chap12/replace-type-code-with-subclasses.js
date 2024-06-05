@@ -47,6 +47,6 @@ export class Employee2 {
     return this._type.charAt(0).toUpperCase() + this._type.substr(1).toLowerCase();
   }
   toString() {
-    return `${this._name} (${this._type})`;
+    return `${this._name} (${this.capitalizedType})`;
   }
 }

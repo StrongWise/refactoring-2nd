@@ -14,7 +14,7 @@ describe('replace-type-code-with-subclasses', () => {
     const employee2 = new Employee2('eng', 'engineer');
     expect(employee2.type).to.equal('engineer');
     expect(employee2.capitalizedType).to.equal('Engineer');
-    expect(employee2.toString()).to.equal('eng (engineer)');
+    expect(employee2.toString()).to.equal('eng (Engineer)');
     employee2.type = 'manager';
     expect(employee2.type).to.equal('manager');
   });
