@@ -1,7 +1,5 @@
 export function createBird(data) {
   switch (data.type) {
-    case '유럽 제비':
-      return new EuropeanSwallow(data);
     case '아프리카 제비':
       return new AfricanSwallow(data);
     case '노르웨이 파랑 앵무':
@@ -38,9 +36,6 @@ export class Bird {
   get airSpeedVelocity() {return this._speciesDelegate.airSpeedVelocity;}
 }
 
-export class EuropeanSwallow extends Bird {
-  get airSpeedVelocity() {return this._speciesDelegate.airSpeedVelocity;}
-}
 export class AfricanSwallow extends Bird {
   constructor(data) {
     super(data);
