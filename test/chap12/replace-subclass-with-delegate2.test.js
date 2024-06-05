@@ -1,4 +1,4 @@
-import {AfricanSwallow, createBird} from "../../src/chap12/replace-subclass-with-delegate2.js";
+import {createBird} from "../../src/chap12/replace-subclass-with-delegate2.js";
 import {expect} from "chai";
 
 describe('replace-subclass-with-delegate2', () => {
