@@ -10,12 +10,12 @@ describe('replace-superclass-with-delegate', () => {
     expect(catalogItem2.hasTag('revered')).false;
   });
   it('Scroll ', () => {
-    const scroll = new Scroll(3, 'item3', 'revered', DateTime.fromISO('2024-06-10'), 3
+    const scroll = new Scroll(3, DateTime.fromISO('2024-06-10'), 3
       , new CatalogItem(3, 'item3', 'revered'));
     expect(scroll.needCleaning(DateTime.fromISO('2022-07-10'))).true;
     expect(scroll.needCleaning(DateTime.fromISO('2022-07-11'))).false;
 
-    const scroll2 = new Scroll(4, 'item4', 'tag4', DateTime.fromISO('2024-06-11'), 3
+    const scroll2 = new Scroll(4, DateTime.fromISO('2024-06-11'), 3
       , new CatalogItem(4, 'item4', 'tag4'));
     expect(scroll2.needCleaning(DateTime.fromISO('2020-05-02'))).true;
     expect(scroll2.needCleaning(DateTime.fromISO('2020-05-03'))).false;
